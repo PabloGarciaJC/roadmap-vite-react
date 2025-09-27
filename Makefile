@@ -89,7 +89,12 @@ vite-dev:
 
 .PHONY: vite-router
 vite-router:
+# Instala React Router en el proyecto Vite
+# Esto permite crear rutas y navegación dentro de tu aplicación React
+# cd /var/www/html → asegúrate de estar en la raíz del proyecto
+# npm install react-router-dom → instala la librería de routing
 	$(DOCKER_COMPOSE) exec --user $${USER:-pablogarciajc} server_core bash -c "cd /var/www/html && npm install react-router-dom"
+
 
 
 
