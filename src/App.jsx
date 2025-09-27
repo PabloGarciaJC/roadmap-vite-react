@@ -1,17 +1,21 @@
 import React from "react";
-import Header from "./components/Header";
+import { Routes, Route } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Gallery from "./components/Gallery";
-import "./index.css";
+import Favorites from "./components/Favorites";
+import Configuracion from "./components/Configuracion";
 
 export default function App() {
   return (
     <div className="app">
       <Sidebar />
-      <div className="main">
-        <Header />
-        <Gallery />
-      </div>
+      <main className="main">
+        <Routes>
+          <Route path="/" element={<Gallery />} />
+          <Route path="/favoritos" element={<Favorites />} />
+          <Route path="/configuracion" element={<Configuracion />} />
+        </Routes>
+      </main>
     </div>
   );
 }

@@ -87,4 +87,9 @@ vite-dev:
 # Accede luego a la aplicación en: http://localhost:5173
 	$(DOCKER_COMPOSE) exec --user $${USER:-pablogarciajc} server_core bash -c "cd /var/www/html && npm run dev -- --host"
 
+.PHONY: vite-router
+vite-router:
+	$(DOCKER_COMPOSE) exec --user $${USER:-pablogarciajc} server_core bash -c "cd /var/www/html && npm install react-router-dom"
+
+
 
