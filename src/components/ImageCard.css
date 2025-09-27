@@ -1,0 +1,11 @@
+.image-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 5px;
+}
+
+.image-card h3 {
+  text-align: center;
+  margin-top: 0.5rem;
+}
