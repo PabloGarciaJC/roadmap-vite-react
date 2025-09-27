@@ -9,7 +9,7 @@ DOCKER_COMPOSE = docker compose -f ./.docker/docker-compose.yml
 ## ---------------------------------------------------------
 
 .PHONY: init-app
-init-app: | copy-env create-symlink up print-urls
+init-app: | copy-env create-symlink up vite-dev print-urls
 
 .PHONY: copy-env
 copy-env:
@@ -21,8 +21,8 @@ create-symlink:
 
 .PHONY: print-urls
 print-urls:
-	@echo "## Acceso a la Aplicación:   http://localhost:8081/"
-	@echo "## Acceso a PhpMyAdmin:      http://localhost:8082/"
+	@echo "## Acceso a la Aplicación:   http://localhost:5173"
+	@echo "## Acceso a PhpMyAdmin:      http://localhost:5173"
 
 ## ---------------------------------------------------------
 ## Gestión de Contenedores
@@ -71,7 +71,6 @@ dev:
 ## ---------------------------------------------------------
 ## Instalación de Vite
 ## ---------------------------------------------------------
-
 .PHONY: vite-create
 vite-create:
 # 	Entrar al contenedor y crear un proyecto Vite en la raíz del proyecto

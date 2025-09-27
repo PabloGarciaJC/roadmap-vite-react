@@ -2,7 +2,7 @@ services:
   php_apache:
     build:
       context: .
-      dockerfile: ./php_server/Dockerfile
+      dockerfile: ./server_core/Dockerfile
       args:
         NEW_UID: ${NEW_UID}
         NEW_GID: ${NEW_GID}
