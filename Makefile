@@ -22,7 +22,7 @@ create-symlink:
 .PHONY: print-urls
 print-urls:
 	@echo "## Acceso a la Aplicación:   http://localhost:5173"
-	@echo "## Acceso a PhpMyAdmin:      http://localhost:5173"
+	@echo "## Acceso a PhpMyAdmin:      http://localhost:8082/"
 
 ## ---------------------------------------------------------
 ## Gestión de Contenedores
