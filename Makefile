@@ -62,11 +62,11 @@ clean-docker:
 
 .PHONY: shell
 shell:
-	$(DOCKER_COMPOSE) exec --user $${USER:-pablogarciajc} php_apache /bin/sh -c "cd /var/www/html/; exec bash -l"
+	$(DOCKER_COMPOSE) exec --user $${USER:-pablogarciajc} server_core /bin/sh -c "cd /var/www/html/; exec bash -l"
 
 .PHONY: dev
 dev:
-	sudo docker exec -it --user root php_apache bash -c "cd /var/www/html/frontend && npm run dev -- --host"
+	sudo docker exec -it --user root server_core bash -c "cd /var/www/html/frontend && npm run dev -- --host"
 
 ## ---------------------------------------------------------
 ## Instalación de Vite
@@ -79,7 +79,7 @@ vite-create:
 # 	2 - Current directory is not empty → Ignore files and continue
 # 	3 -  Use rolldown-vite (Experimental)? → No
 # 	4 - Install with npm and start now? → Yes
-	$(DOCKER_COMPOSE) exec --user $${USER:-pablogarciajc} php_apache bash -c "cd /var/www/html && npm create vite@latest . -- --template react"
+	$(DOCKER_COMPOSE) exec --user $${USER:-pablogarciajc} server_core bash -c "cd /var/www/html && npm create vite@latest . -- --template react"
 
 .PHONY: vite-dev
 vite-dev:
@@ -87,6 +87,6 @@ vite-dev:
 # cd /var/www/html → asegúrate de estar en la raíz del proyecto
 # npm run dev -- --host → inicia Vite en modo dev y expone el host para acceder desde tu máquina
 # Accede luego a la aplicación en: http://localhost:5173
-	$(DOCKER_COMPOSE) exec --user $${USER:-pablogarciajc} php_apache bash -c "cd /var/www/html && npm run dev -- --host"
+	$(DOCKER_COMPOSE) exec --user $${USER:-pablogarciajc} server_core bash -c "cd /var/www/html && npm run dev -- --host"
 
 

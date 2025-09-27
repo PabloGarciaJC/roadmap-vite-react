@@ -1,5 +1,5 @@
 services:
-  php_apache:
+  server_core:
     build:
       context: .
       dockerfile: ./server_core/Dockerfile
@@ -8,9 +8,9 @@ services:
         NEW_GID: ${NEW_GID}
         MY_USER: ${MY_USER}
         MY_GROUP: ${MY_GROUP}
-    container_name: php_apache
+    container_name: server_core
     ports:
-      - "${PHP_APACHE_PORT}:80"
+      - "${server_core_PORT}:80"
       - "5173:5173" # <-- Agregar esto para exponer Vite
     volumes:
       - ../.:/var/www/html
@@ -32,7 +32,7 @@ services:
       - ./database:/docker-entrypoint-initdb.d
       -  persistent-app:/var/lib/mysql:rw
     depends_on:
-      - php_apache
+      - server_core
     networks:
       - network_app
 
