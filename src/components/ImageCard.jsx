@@ -1,5 +1,4 @@
 import React from "react";
-import "./ImageCard.css"; // Opcional si quieres estilos separados
 
 export default function ImageCard({ image }) {
   return (

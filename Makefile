@@ -58,8 +58,6 @@ clean-docker:
 	sudo docker volume rm $$(sudo docker volume ls -q) || true
 	sudo docker network prune -f || true
 
-
-
 .PHONY: shell
 shell:
 	$(DOCKER_COMPOSE) exec --user $${USER:-pablogarciajc} server_core /bin/sh -c "cd /var/www/html/; exec bash -l"
