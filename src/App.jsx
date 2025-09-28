@@ -19,7 +19,6 @@
 //     </div>
 //   );
 // }
-
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
@@ -36,13 +35,24 @@ import UseCallback from "./components/UseCallback";
 import UseMemo from "./components/UseMemo";
 import Eventos from "./components/Eventos";
 import Listas from "./components/Listas";
+import Routers from "./components/Routers";
 import Formularios from "./components/Formularios";
 import Optimizar from "./components/Optimizar";
 
+// Iconos
+import { FaBell, FaHome } from "react-icons/fa";
+
 export default function App() {
   return (
-    <div className="app flex">
+    <div className="app flex relative">
       <Sidebar />
+
+      {/* Iconos globales visibles en todas las páginas */}
+      <div className="absolute top-4 right-4 flex gap-4">
+        <FaBell size={24} color="orange" />
+        <FaHome size={24} color="green" />
+      </div>
+
       <main className="main flex-1 p-6">
         <Routes>
           <Route path="/" element={<Introduccion />} />
@@ -56,6 +66,7 @@ export default function App() {
           <Route path="/usememo" element={<UseMemo />} />
           <Route path="/eventos" element={<Eventos />} />
           <Route path="/listas" element={<Listas />} />
+          <Route path="/routers" element={<Routers />} />
           <Route path="/formularios" element={<Formularios />} />
           <Route path="/optimizar" element={<Optimizar />} />
         </Routes>

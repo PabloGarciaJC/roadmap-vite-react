@@ -1,15 +1,16 @@
 ## ---------------------------------------------------------
 ## Comando base para docker-compose
 ## ---------------------------------------------------------
-
 DOCKER_COMPOSE = docker compose -f ./.docker/docker-compose.yml
+APP_DIR = /var/www/html
+USER = pablogarciajc
 
 ## ---------------------------------------------------------
 ## Inicialización de la Aplicación
 ## ---------------------------------------------------------
 
 .PHONY: init-app
-init-app: | copy-env create-symlink up vite-dev print-urls
+init-app: | copy-env create-symlink up npm-install vite-dev print-urls
 
 .PHONY: copy-env
 copy-env:
@@ -27,7 +28,6 @@ print-urls:
 ## ---------------------------------------------------------
 ## Gestión de Contenedores
 ## ---------------------------------------------------------
-
 .PHONY: up
 up:
 	$(DOCKER_COMPOSE) up -d
@@ -60,41 +60,32 @@ clean-docker:
 
 .PHONY: shell
 shell:
-	$(DOCKER_COMPOSE) exec --user $${USER:-pablogarciajc} server_core /bin/sh -c "cd /var/www/html/; exec bash -l"
-
-.PHONY: dev
-dev:
-	sudo docker exec -it --user root server_core bash -c "cd /var/www/html/frontend && npm run dev -- --host"
+	$(DOCKER_COMPOSE) exec --user ${USER} server_core /bin/sh -c "cd ${APP_DIR}; exec bash -l"
 
 ## ---------------------------------------------------------
-## Instalación de Vite
+## Permisos dentro del contenedor
 ## ---------------------------------------------------------
+.PHONY: set-permissions
+set-permissions:
+	@echo "🔧 Ajustando permisos de la aplicación..."
+	$(DOCKER_COMPOSE) exec --user root server_core bash -c "chown -R ${USER}:${USER} ${APP_DIR} && chmod -R 755 ${APP_DIR}"
+
+## ---------------------------------------------------------
+## Instalación y configuración de Vite
+## ---------------------------------------------------------
+
 .PHONY: vite-create
 vite-create:
-# 	Entrar al contenedor y crear un proyecto Vite en la raíz del proyecto
-# 	Selecciones interactivas que debes hacer:
-# 	1 - Ok to proceed? → Y
-# 	2 - Current directory is not empty → Ignore files and continue
-# 	3 -  Use rolldown-vite (Experimental)? → No
-# 	4 - Install with npm and start now? → Yes
-	$(DOCKER_COMPOSE) exec --user $${USER:-pablogarciajc} server_core bash -c "cd /var/www/html && npm create vite@latest . -- --template react"
+	@echo "🚀 Creando proyecto Vite + React..."
+	$(DOCKER_COMPOSE) exec --user pablogarciajc server_core bash -c "cd /var/www/html && npm create vite@latest . -- --template react"
 
 .PHONY: vite-dev
 vite-dev:
-# Levanta el servidor de desarrollo de Vite en la raíz del proyecto
-# cd /var/www/html → asegúrate de estar en la raíz del proyecto
-# npm run dev -- --host → inicia Vite en modo dev y expone el host para acceder desde tu máquina
-# Accede luego a la aplicación en: http://localhost:5173
-	$(DOCKER_COMPOSE) exec --user $${USER:-pablogarciajc} server_core bash -c "cd /var/www/html && npm run dev -- --host"
+	@echo "💻 Levantando servidor de desarrollo Vite..."
+	$(DOCKER_COMPOSE) exec --user pablogarciajc server_core bash -c "cd /var/www/html && npm run dev -- --host"
 
-.PHONY: vite-router
-vite-router:
-# Instala React Router en el proyecto Vite
-# Esto permite crear rutas y navegación dentro de tu aplicación React
-# cd /var/www/html → asegúrate de estar en la raíz del proyecto
-# npm install react-router-dom → instala la librería de routing
-	$(DOCKER_COMPOSE) exec --user $${USER:-pablogarciajc} server_core bash -c "cd /var/www/html && npm install react-router-dom"
-
-
-
+.PHONY: npm-install
+npm-install:
+	@echo "📦 Instalando todas las dependencias npm..."
+	$(DOCKER_COMPOSE) exec --user pablogarciajc server_core bash -c "cd /var/www/html && npm install"
 

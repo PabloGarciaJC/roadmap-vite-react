@@ -17,7 +17,7 @@ export default function Sidebar() {
         <li><Link to="/usememo">🧪 useMemo</Link></li>
         <li><Link to="/eventos">🎛️ Manejo de eventos</Link></li>
         <li><Link to="/listas">📋 Renderizado de listas y condicional</Link></li>
-        <li><Link to="/router">🛤️ React Router</Link></li>
+        <li><Link to="/routers">🛤️ React Router</Link></li>
         <li><Link to="/formularios">✍️ Formularios</Link></li>
         <li><Link to="/optimizar">⚙️ Optimización avanzada</Link></li>
       </ul>
