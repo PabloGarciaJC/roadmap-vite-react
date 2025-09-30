@@ -76,16 +76,13 @@ set-permissions:
 
 .PHONY: vite-create
 vite-create:
-	@echo "🚀 Creando proyecto Vite + React..."
 	$(DOCKER_COMPOSE) exec --user pablogarciajc server_core bash -c "cd /var/www/html && npm create vite@latest . -- --template react"
 
 .PHONY: vite-dev
 vite-dev:
-	@echo "💻 Levantando servidor de desarrollo Vite..."
 	$(DOCKER_COMPOSE) exec --user pablogarciajc server_core bash -c "cd /var/www/html && npm run dev -- --host"
 
 .PHONY: npm-install
 npm-install:
-	@echo "📦 Instalando todas las dependencias npm..."
 	$(DOCKER_COMPOSE) exec --user pablogarciajc server_core bash -c "cd /var/www/html && npm install"
 

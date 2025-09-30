@@ -114,3 +114,62 @@ body {
   color: #222;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
+
+
+/* sss */
+.introduccion-container {
+  padding: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.introduccion-title {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.card {
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.card-warning {
+  border: 1px solid #ffd600;
+  background: #fff8e1;
+}
+
+.card-neutral {
+  border: 1px solid #ccc;
+  background: #fff;
+}
+
+.code-block {
+  background: #f5f5f5;
+  padding: 0.5rem;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+.project-table {
+  border-collapse: collapse;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.project-table th,
+.project-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+.project-table thead {
+  background-color: #f3f4f6;
+}
+
+.subfile {
+  padding-left: 2rem !important;
+}
+

@@ -31,10 +31,10 @@ export default function Optimizar() {
       <div style={{ border: "1px solid #ccc", padding: "1rem", borderRadius: "8px", marginBottom: "1rem" }}>
         <label>
           Introduce un número:{" "}
-          <input 
-            type="number" 
-            value={numero} 
-            onChange={(e) => setNumero(Number(e.target.value))} 
+          <input
+            type="number"
+            value={numero}
+            onChange={(e) => setNumero(Number(e.target.value))}
             style={{ padding: "0.5rem", borderRadius: "4px", border: "1px solid #aaa" }}
           />
         </label>
@@ -50,13 +50,13 @@ export default function Optimizar() {
       <div style={{ border: "1px solid #ccc", padding: "1rem", borderRadius: "8px" }}>
         <strong>Ejemplo de sintaxis:</strong>
         <pre style={{ background: "#f5f5f5", padding: "0.5rem", borderRadius: "4px" }}>
-{`const [numero, setNumero] = useState(0);
+          {`const [numero, setNumero] = useState(0);
 
 const numeros = useMemo(() => {
   return Array.from({ length: numero }, (_, i) => i + 1);
 }, [numero]);
 
-{numeros.map(n => <Numero key={n} valor={n} />)}`} 
+{numeros.map(n => <Numero key={n} valor={n} />)}`}
         </pre>
       </div>
     </div>

@@ -3,14 +3,12 @@ import React from "react";
 
 export default function Introduccion() {
   return (
-    <div style={{ padding: "1.5rem", maxWidth: "800px", margin: "0 auto" }}>
-      <h1 style={{ fontSize: "1.75rem", fontWeight: "bold", marginBottom: "1rem" }}>
-        🚀 Introducción a React con Vite
-      </h1>
+    <div className="introduccion-container">
+      <h1 className="introduccion-title">🚀 Introducción a React con Vite</h1>
 
       {/* Qué es Vite */}
-      <div style={{ border: "1px solid #ffd600", background: "#fff8e1", padding: "1rem", borderRadius: "8px", marginBottom: "1rem" }}>
-        <h2 style={{ marginTop: 0 }}>📌 ¿Qué es Vite?</h2>
+      <div className="card card-warning">
+        <h2>📌 ¿Qué es Vite?</h2>
         <p>
           Vite es un "build tool" moderno para proyectos de front-end. Permite:
         </p>
@@ -19,21 +17,17 @@ export default function Introduccion() {
           <li>Actualización en caliente (HMR) para ver cambios al instante.</li>
           <li>Compilación optimizada para producción.</li>
         </ul>
-        <pre style={{ background: "#f5f5f5", padding: "0.5rem", borderRadius: "4px" }}>
+        <pre className="code-block">
           <code>{`npm create vite@latest my-app\n# seleccionar React`}</code>
         </pre>
       </div>
 
       {/* Estructura de proyecto */}
-      <div style={{ border: "1px solid #ccc", padding: "1rem", borderRadius: "8px", marginBottom: "1rem" }}>
+      <div className="card card-neutral">
         <h2>🗂 Estructura de un proyecto Vite + React</h2>
         <p>Al crear un proyecto con Vite, tendrás:</p>
-        <table
-          border="1"
-          cellPadding="8"
-          style={{ borderCollapse: "collapse", marginTop: "1rem", width: "100%" }}
-        >
-          <thead style={{ backgroundColor: "#f3f4f6" }}>
+        <table className="project-table">
+          <thead>
             <tr>
               <th>Archivo / Carpeta</th>
               <th>Descripción</th>
@@ -61,19 +55,19 @@ export default function Introduccion() {
               <td>Carpeta principal donde estará tu código React.</td>
             </tr>
             <tr>
-              <td style={{ paddingLeft: "2rem" }}><code>main.jsx</code></td>
+              <td className="subfile"><code>main.jsx</code></td>
               <td>Punto de entrada de la aplicación donde se monta React en el DOM.</td>
             </tr>
             <tr>
-              <td style={{ paddingLeft: "2rem" }}><code>App.jsx</code></td>
+              <td className="subfile"><code>App.jsx</code></td>
               <td>Componente raíz que contiene tu aplicación.</td>
             </tr>
             <tr>
-              <td style={{ paddingLeft: "2rem" }}><code>components/</code></td>
+              <td className="subfile"><code>components/</code></td>
               <td>Carpeta para tus componentes React reutilizables.</td>
             </tr>
             <tr>
-              <td style={{ paddingLeft: "2rem" }}><code>assets/</code></td>
+              <td className="subfile"><code>assets/</code></td>
               <td>Carpeta para imágenes, estilos u otros recursos.</td>
             </tr>
             <tr>
@@ -85,7 +79,7 @@ export default function Introduccion() {
       </div>
 
       {/* Cosas importantes */}
-      <div style={{ border: "1px solid #ffd600", background: "#fff8e1", padding: "1rem", borderRadius: "8px", marginBottom: "1rem" }}>
+      <div className="card card-warning">
         <h2>⚡ Cosas importantes para usar Vite</h2>
         <ul>
           <li>Iniciar servidor de desarrollo: <code>npm run dev</code></li>
@@ -98,7 +92,7 @@ export default function Introduccion() {
       </div>
 
       {/* Tips rápidos */}
-      <div style={{ border: "1px solid #ccc", padding: "1rem", borderRadius: "8px", marginBottom: "1rem" }}>
+      <div className="card card-neutral">
         <h2>💡 Tips rápidos</h2>
         <ul>
           <li>Usa React Fast Refresh para ver cambios sin perder estado.</li>
