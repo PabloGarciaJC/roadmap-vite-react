@@ -1,5 +1,6 @@
-// components/UseContext.js
+// components/UseContext.jsx
 import React, { createContext, useContext, useState } from "react";
+import { FaGlobe, FaLightbulb, FaCode } from "react-icons/fa";
 
 // 🔹 Contexto para el tema
 const TemaContext = createContext();
@@ -10,16 +11,8 @@ function TemaBoton() {
 
   return (
     <button
+      className={`btn ${tema === "claro" ? "btn-light" : "btn-dark"}`}
       onClick={toggleTema}
-      style={{
-        padding: "0.5rem 1rem",
-        borderRadius: "4px",
-        border: "none",
-        background: tema === "claro" ? "#f0f0f0" : "#333",
-        color: tema === "claro" ? "#000" : "#fff",
-        cursor: "pointer",
-        marginTop: "0.5rem",
-      }}
     >
       Cambiar tema (actual: {tema})
     </button>
@@ -32,25 +25,32 @@ export default function UseContext() {
   const toggleTema = () => setTema(tema === "claro" ? "oscuro" : "claro");
 
   return (
-    <div style={{ padding: "1.5rem", maxWidth: "600px", margin: "0 auto" }}>
-      <h1 style={{ fontSize: "1.75rem", fontWeight: "bold", marginBottom: "1rem" }}>
-        🌍 useContext - Gestión de estado global
+    <div className="container">
+      <h1 className="title flex items-center gap-2">
+        <FaGlobe className="icon" /> useContext - Gestión de estado global
       </h1>
 
-      <div style={{ border: "1px solid #ffd600", background: "#fff8e1", padding: "1rem", borderRadius: "8px", marginBottom: "1rem" }}>
-        <strong>📌 Qué hace useContext:</strong> Permite compartir información entre componentes sin necesidad de pasar props manualmente por cada nivel.
+      {/* Descripción */}
+      <div className="card card-warning flex items-center gap-2">
+        <FaLightbulb className="icon" /> 
+        <strong>Qué hace useContext:</strong> Permite compartir información entre componentes sin necesidad de pasar props manualmente por cada nivel.
       </div>
 
-      <div style={{ border: "1px solid #ccc", padding: "1rem", borderRadius: "8px", marginBottom: "1rem" }}>
+      {/* Componente y toggle */}
+      <div className="card card-sub">
         <p>El tema actual es: <strong>{tema}</strong></p>
         <TemaContext.Provider value={{ tema, toggleTema }}>
           <TemaBoton />
         </TemaContext.Provider>
       </div>
 
-      <div style={{ border: "1px solid #ccc", padding: "1rem", borderRadius: "8px" }}>
-        <strong>Ejemplo de código:</strong>
-        <pre style={{ background: "#f5f5f5", padding: "0.5rem", borderRadius: "4px", overflowX: "auto" }}>
+      {/* Ejemplo de código */}
+      <div className="card card-sub flex flex-col gap-2">
+        <div className="flex items-center gap-2">
+          <FaCode className="icon" />
+          <strong>Ejemplo de código:</strong>
+        </div>
+        <pre className="code-block">
           <code>{`const TemaContext = createContext();
 
 function TemaBoton() {

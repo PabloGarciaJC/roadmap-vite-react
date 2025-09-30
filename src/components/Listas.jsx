@@ -1,5 +1,6 @@
-// components/Listas.js
+// components/Listas.jsx
 import React from "react";
+import { FaListAlt, FaCheckCircle, FaTimesCircle, FaCode, FaInfoCircle } from "react-icons/fa";
 
 export default function Listas() {
   const tareas = [
@@ -9,31 +10,33 @@ export default function Listas() {
   ];
 
   return (
-    <div style={{ padding: "1.5rem", maxWidth: "600px", margin: "0 auto" }}>
-      <h1 style={{ fontSize: "1.75rem", fontWeight: "bold", marginBottom: "1rem" }}>
-        📋 Listas y condicionales en React
+    <div className="container">
+      <h1 className="title flex items-center gap-2">
+        <FaListAlt className="icon" /> Listas y condicionales en React
       </h1>
 
-      {/* Descripción */}
-      <div style={{ border: "1px solid #ffd600", background: "#fff8e1", padding: "1rem", borderRadius: "8px", marginBottom: "1rem" }}>
-        <strong>📌 Qué hace:</strong> En React puedes renderizar listas usando <code>map()</code> y manejar condicionales dentro del JSX, como mostrar ✅ o ❌ según el estado de cada elemento.
+      <div className="card card-warning flex items-center gap-2">
+        <FaInfoCircle className="icon" />
+        <strong>Qué hace:</strong> En React puedes renderizar listas usando <code>map()</code> y manejar condicionales dentro del JSX, como mostrar un icono de completado o pendiente.
       </div>
 
-      {/* Ejemplo visual */}
-      <div style={{ border: "1px solid #ccc", padding: "1rem", borderRadius: "8px", marginBottom: "1rem" }}>
-        <ul style={{ paddingLeft: "1.5rem" }}>
+      <div className="card card-sub">
+        <ul>
           {tareas.map(tarea => (
-            <li key={tarea.id}>
-              {tarea.nombre} {tarea.completada ? "✅" : "❌"}
+            <li key={tarea.id} className="flex items-center gap-2">
+              {tarea.nombre}{" "}
+              {tarea.completada ? <FaCheckCircle className="icon text-green-500" /> : <FaTimesCircle className="icon text-red-500" />}
             </li>
           ))}
         </ul>
       </div>
 
-      {/* Ejemplo de código */}
-      <div style={{ border: "1px solid #ccc", padding: "1rem", borderRadius: "8px" }}>
-        <strong>Ejemplo de código:</strong>
-        <pre style={{ background: "#f5f5f5", padding: "0.5rem", borderRadius: "4px", overflowX: "auto" }}>
+      <div className="card card-sub flex flex-col gap-2">
+        <div className="flex items-center gap-2">
+          <FaCode className="icon" />
+          <strong>Ejemplo de código:</strong>
+        </div>
+        <pre className="code-block">
           <code>{`const tareas = [
   { id: 1, nombre: "Aprender React", completada: true },
   { id: 2, nombre: "Practicar Hooks", completada: false },
@@ -43,7 +46,7 @@ export default function Listas() {
 <ul>
   {tareas.map(tarea => (
     <li key={tarea.id}>
-      {tarea.nombre} {tarea.completada ? "✅" : "❌"}
+      {tarea.nombre} {tarea.completada ? <FaCheckCircle /> : <FaTimesCircle />}
     </li>
   ))}
 </ul>`}</code>

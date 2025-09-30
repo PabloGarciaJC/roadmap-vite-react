@@ -19,20 +19,10 @@ import Routers from "./components/Routers";
 import Formularios from "./components/Formularios";
 import Optimizar from "./components/Optimizar";
 
-// Iconos
-import { FaBell, FaHome } from "react-icons/fa";
-
 export default function App() {
   return (
     <div className="app flex relative">
       <Sidebar />
-
-      {/* Iconos globales visibles en todas las páginas */}
-      <div className="absolute top-4 right-4 flex gap-4">
-        <FaBell size={24} color="orange" />
-        <FaHome size={24} color="green" />
-      </div>
-
       <main className="main flex-1 p-6">
         <Routes>
           <Route path="/" element={<Introduccion />} />

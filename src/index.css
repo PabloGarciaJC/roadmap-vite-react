@@ -115,61 +115,179 @@ body {
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
+/* ===== RESET GLOBAL ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-/* sss */
-.introduccion-container {
-  padding: 1.5rem;
-  max-width: 800px;
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+  background: #f0f2f5;
+  color: #2c3e50;
+  line-height: 1.6;
+  padding-bottom: 3rem;
+}
+
+/* ===== CONTENEDOR ===== */
+.container {
+  padding: 2rem;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
-.introduccion-title {
-  font-size: 1.75rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+/* ===== TÍTULOS ===== */
+.title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: #1e293b;
+  letter-spacing: -0.5px;
 }
 
+.subtitle {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #334155;
+}
+
+/* ===== ICONOS ===== */
+.icon {
+  color: #3b82f6;
+  font-size: 1.3em;
+  transition: transform 0.2s ease;
+}
+
+.icon:hover {
+  transform: scale(1.2);
+}
+
+/* ===== TARJETAS ===== */
 .card {
-  padding: 1rem;
-  border-radius: 8px;
-  margin-bottom: 1rem;
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  background: #ffffff;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Variantes */
 .card-warning {
-  border: 1px solid #ffd600;
-  background: #fff8e1;
+  border-left: 6px solid #f59e0b;
+  background: #fff9eb;
 }
 
 .card-neutral {
-  border: 1px solid #ccc;
-  background: #fff;
+  border-left: 6px solid #64748b;
+  background: #f8fafc;
 }
 
+/* ===== LISTAS ===== */
+ul {
+  margin-top: 0.75rem;
+  margin-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.6rem;
+  font-size: 1rem;
+  position: relative;
+}
+
+li::marker {
+  color: #3b82f6;
+}
+
+/* ===== CÓDIGO ===== */
 .code-block {
-  background: #f5f5f5;
-  padding: 0.5rem;
-  border-radius: 4px;
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 1rem 1.2rem;
+  border-radius: 10px;
+  font-family: "Fira Code", monospace;
+  white-space: pre-wrap;
+  margin-top: 1rem;
+  font-size: 0.95rem;
   overflow-x: auto;
+  border: 1px solid #1e293b;
 }
 
-.project-table {
+/* ===== TABLAS ===== */
+.table {
+  width: 100%;
   border-collapse: collapse;
   margin-top: 1rem;
-  width: 100%;
+  font-size: 0.95rem;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-.project-table th,
-.project-table td {
-  border: 1px solid #ccc;
-  padding: 8px;
+.table th,
+.table td {
+  border: 1px solid #e5e7eb;
+  padding: 0.9rem;
+}
+
+.table th {
+  background: #f1f5f9;
   text-align: left;
+  font-weight: 600;
+  color: #1e293b;
 }
 
-.project-table thead {
-  background-color: #f3f4f6;
+.table tr:nth-child(even) {
+  background: #f9fafb;
 }
 
-.subfile {
-  padding-left: 2rem !important;
+.table tr:hover {
+  background: #f1f5f9;
+  transition: background 0.2s ease;
 }
 
+/* ===== ENFASIS ===== */
+code {
+  background: #e5e7eb;
+  padding: 0.25rem 0.45rem;
+  border-radius: 5px;
+  font-family: "Fira Code", monospace;
+  font-size: 0.9rem;
+  color: #111827;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+
+  .table {
+    font-size: 0.85rem;
+  }
+}

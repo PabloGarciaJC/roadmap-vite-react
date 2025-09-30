@@ -1,5 +1,6 @@
-// components/Props.js
+// components/Props.jsx
 import React from "react";
+import { FaInbox, FaCheckCircle, FaTimesCircle, FaAppleAlt, FaFileAlt, FaSmile } from "react-icons/fa";
 
 // 🔹 Componente hijo que recibe props de distintos tipos
 function EjemploProps({
@@ -13,48 +14,74 @@ function EjemploProps({
   componente,
 }) {
   return (
-    <div style={{ border: "1px solid #ccc", padding: "1rem", marginBottom: "1rem", borderRadius: "8px" }}>
-      <h3>Ejemplo completo de Props</h3>
+    <div className="card">
+      <h3 className="card-title flex items-center gap-2">
+        <FaFileAlt className="icon" /> Ejemplo completo de Props
+      </h3>
 
       {/* String */}
-      <p>Nombre (string): <strong>{nombre}</strong></p>
+      <p>
+        Nombre (string): <strong>{nombre}</strong>
+      </p>
 
       {/* Number */}
-      <p>Edad (number): <strong>{edad}</strong></p>
+      <p>
+        Edad (number): <strong>{edad}</strong>
+      </p>
 
       {/* Boolean */}
-      <p>Activo (boolean): <strong>{activo ? "✅ Sí" : "❌ No"}</strong></p>
+      <p className="flex items-center gap-2">
+        Activo (boolean):
+        {activo ? (
+          <span className="flex items-center gap-1">
+            <FaCheckCircle className="icon text-green-600" /> Sí
+          </span>
+        ) : (
+          <span className="flex items-center gap-1">
+            <FaTimesCircle className="icon text-red-600" /> No
+          </span>
+        )}
+      </p>
 
       {/* Array */}
-      <p>Frutas (array): <strong>{frutas ? frutas.join(", ") : "No hay frutas"}</strong></p>
+      <p>
+        Frutas (array): <strong>{frutas ? frutas.join(", ") : "No hay frutas"}</strong>
+      </p>
 
       {/* Objeto */}
-      <p>Datos (objeto): <strong>{datos ? JSON.stringify(datos) : "No hay datos"}</strong></p>
+      <p>
+        Datos (objeto): <strong>{datos ? JSON.stringify(datos) : "No hay datos"}</strong>
+      </p>
 
       {/* Función */}
-      <p>Mensaje de función (función): <strong>{saludo ? saludo() : "No hay función"}</strong></p>
+      <p>
+        Mensaje de función (función): <strong>{saludo ? saludo() : "No hay función"}</strong>
+      </p>
 
       {/* Elemento JSX */}
-      <p>Elemento JSX: {elementoJSX || <em>No se pasó elemento</em>}</p>
+      <p>
+        Elemento JSX: {elementoJSX || <em>No se pasó elemento</em>}
+      </p>
 
       {/* Componente como prop */}
       <p>Componente pasado como prop:</p>
       {componente ? componente() : <em>No se pasó componente</em>}
 
       {/* Sintaxis */}
-      <p>
-        <strong>Sintaxis:</strong>{" "}
-        <code>
-          {"<EjemploProps nombre='Ana' edad={25} activo={true} frutas={['Manzana']} datos={{key:'valor'}} saludo={funcion} elementoJSX={<div>Hola</div>} componente={() => <OtroComponente />} />"}
-        </code>
-      </p>
+      <pre className="code-block">
+        <code>{`<EjemploProps nombre='Ana' edad={25} activo={true} frutas={['Manzana']} datos={{key:'valor'}} saludo={funcion} elementoJSX={<div>Hola</div>} componente={() => <OtroComponente />} />`}</code>
+      </pre>
     </div>
   );
 }
 
 // 🔹 Componente simple para pasar como prop
 function OtroComponente() {
-  return <div style={{ padding: "0.5rem", background: "#f0f0f0" }}>Soy un componente pasado como prop</div>;
+  return (
+    <div className="card-sub">
+      <FaSmile className="icon" /> Soy un componente pasado como prop
+    </div>
+  );
 }
 
 // 🔹 Componente principal
@@ -64,15 +91,19 @@ export default function Props() {
   const datosUsuario = { ciudad: "Madrid", pais: "España" };
 
   return (
-    <div style={{ padding: "1.5rem", maxWidth: "700px", margin: "0 auto" }}>
-      <h1 style={{ fontSize: "1.75rem", fontWeight: "bold", marginBottom: "1rem" }}>
-        📥 Props en React - Ejemplo completo
+    <div className="container">
+      <h1 className="title flex items-center gap-2">
+        <FaInbox className="icon" /> Props en React - Ejemplo completo
       </h1>
 
       {/* Descripción */}
-      <div style={{ marginBottom: "1rem", padding: "0.75rem", backgroundColor: "#d1fae5", borderLeft: "4px solid #10b981", borderRadius: "4px" }}>
+      <div className="card card-warning">
         <strong>¿Qué son las props?</strong>
-        <p>Las props permiten pasar datos desde un componente padre a un componente hijo. Pueden ser de cualquier tipo: string, number, boolean, array, objeto, función, JSX o incluso otro componente. Además, algunas props pueden ser opcionales y se puede validar su existencia antes de usarlas.</p>
+        <p>
+          Las props permiten pasar datos desde un componente padre a un componente hijo. 
+          Pueden ser de cualquier tipo: string, number, boolean, array, objeto, función, JSX o incluso otro componente. 
+          Algunas props pueden ser opcionales y se puede validar su existencia antes de usarlas.
+        </p>
       </div>
 
       {/* Ejemplos de props */}
@@ -83,7 +114,7 @@ export default function Props() {
         frutas={frutasUsuario}
         datos={datosUsuario}
         saludo={miSaludo}
-        elementoJSX={<span style={{ color: "blue" }}>Soy un span JSX</span>}
+        elementoJSX={<span className="text-blue-600">Soy un span JSX</span>}
         componente={() => <OtroComponente />}
       />
 

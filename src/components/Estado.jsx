@@ -1,110 +1,111 @@
-// components/TiposEstado.js
+// components/TiposEstado.jsx
 import React, { useState } from "react";
+import { FaHashtag, FaCheckCircle, FaTimesCircle, FaCalendarAlt, FaPlusCircle, FaAppleAlt, FaRegFile } from "react-icons/fa";
 
 export default function TiposEstado() {
-  // 1️⃣ Número
+  // Estados
   const [contador, setContador] = useState(0);
-
-  // 2️⃣ String
   const [nombre, setNombre] = useState("React");
-
-  // 3️⃣ Booleano
   const [activo, setActivo] = useState(true);
-
-  // 4️⃣ Array
   const [frutas, setFrutas] = useState(["Manzana", "Banana"]);
-
-  // 5️⃣ Objeto
   const [usuario, setUsuario] = useState({ nombre: "Ana", edad: 25 });
-
-  // 6️⃣ Null / undefined
   const [valor, setValor] = useState(null);
-
-  // 7️⃣ Date
   const [fecha, setFecha] = useState(new Date());
-
-  // 8️⃣ Map (colección clave-valor)
   const [mapa, setMapa] = useState(new Map([["a", 1], ["b", 2]]));
-
-  // 9️⃣ Set (colección de valores únicos)
   const [conjunto, setConjunto] = useState(new Set([1, 2, 3]));
-
-  // 🔟 JSX / elemento React
-  const [elemento, setElemento] = useState(<span style={{ color: "red" }}>Hola JSX</span>);
+  const [elemento, setElemento] = useState(<span className="text-red-500">Hola JSX</span>);
 
   return (
-    <div style={{ padding: "1.5rem", maxWidth: "700px", margin: "0 auto" }}>
-      <h1 style={{ fontSize: "1.75rem", fontWeight: "bold", marginBottom: "1rem" }}>
-        Tipos de Estado en React
+    <div className="container">
+      <h1 className="title flex items-center gap-2">
+        <FaRegFile className="icon" /> Tipos de Estado en React
       </h1>
 
       {/* Descripción */}
-      <div style={{ marginBottom: "1rem", padding: "0.75rem", backgroundColor: "#d1fae5", borderLeft: "4px solid #10b981", borderRadius: "4px" }}>
+      <div className="card card-warning">
         <strong>¿Qué es useState?</strong>
-        <p>useState es un hook que permite almacenar y actualizar valores dentro de un componente funcional. Los estados pueden ser de diferentes tipos: números, strings, booleanos, arrays, objetos, fechas, mapas, sets o incluso JSX.</p>
+        <p>
+          useState es un hook que permite almacenar y actualizar valores dentro de un componente funcional. 
+          Los estados pueden ser de diferentes tipos: números, strings, booleanos, arrays, objetos, fechas, mapas, sets o incluso JSX.
+        </p>
       </div>
 
       {/* Número */}
-      <div style={{ marginBottom: "1rem" }}>
-        <strong>Número:</strong> {contador}{" "}
-        <button onClick={() => setContador(contador + 1)}>+1</button>
+      <div className="card-sub flex items-center gap-2">
+        <FaHashtag className="icon" /> <strong>Número:</strong> {contador}
+        <button className="btn" onClick={() => setContador(contador + 1)}>
+          <FaPlusCircle className="icon" /> +1
+        </button>
       </div>
 
       {/* String */}
-      <div style={{ marginBottom: "1rem" }}>
-        <strong>String:</strong> {nombre}{" "}
-        <input value={nombre} onChange={(e) => setNombre(e.target.value)} />
+      <div className="card-sub flex items-center gap-2">
+        <strong>String:</strong>
+        <input
+          className="input"
+          value={nombre}
+          onChange={(e) => setNombre(e.target.value)}
+        />
       </div>
 
       {/* Booleano */}
-      <div style={{ marginBottom: "1rem" }}>
-        <strong>Booleano:</strong> {activo ? "✅ Activo" : "❌ Inactivo"}{" "}
-        <button onClick={() => setActivo(!activo)}>Toggle</button>
+      <div className="card-sub flex items-center gap-2">
+        <strong>Booleano:</strong>
+        {activo ? (
+          <span className="flex items-center gap-1 text-green-600">
+            <FaCheckCircle className="icon" /> Activo
+          </span>
+        ) : (
+          <span className="flex items-center gap-1 text-red-600">
+            <FaTimesCircle className="icon" /> Inactivo
+          </span>
+        )}
+        <button className="btn" onClick={() => setActivo(!activo)}>Toggle</button>
       </div>
 
       {/* Array */}
-      <div style={{ marginBottom: "1rem" }}>
+      <div className="card-sub">
         <strong>Array:</strong>
-        <ul>
-          {frutas.map((f, i) => <li key={i}>{f}</li>)}
+        <ul className="list-disc pl-5">
+          {frutas.map((f, i) => <li key={i}><FaAppleAlt className="icon" /> {f}</li>)}
         </ul>
-        <button onClick={() => setFrutas([...frutas, "Cereza"])}>Agregar Cereza</button>
+        <button className="btn" onClick={() => setFrutas([...frutas, "Cereza"])}>Agregar Cereza</button>
       </div>
 
       {/* Objeto */}
-      <div style={{ marginBottom: "1rem" }}>
-        <strong>Objeto:</strong> {usuario.nombre}, {usuario.edad} años{" "}
-        <button onClick={() => setUsuario({ ...usuario, edad: usuario.edad + 1 })}>Cumplir años</button>
+      <div className="card-sub flex items-center gap-2">
+        <strong>Objeto:</strong> {usuario.nombre}, {usuario.edad} años
+        <button className="btn" onClick={() => setUsuario({ ...usuario, edad: usuario.edad + 1 })}>Cumplir años</button>
       </div>
 
-      {/* Null */}
-      <div style={{ marginBottom: "1rem" }}>
-        <strong>Null / Undefined:</strong> {valor ? valor : "Sin valor"}{" "}
-        <button onClick={() => setValor("¡Ahora hay valor!")}>Agregar valor</button>
+      {/* Null / Undefined */}
+      <div className="card-sub flex items-center gap-2">
+        <strong>Null / Undefined:</strong> {valor ? valor : "Sin valor"}
+        <button className="btn" onClick={() => setValor("¡Ahora hay valor!")}>Agregar valor</button>
       </div>
 
       {/* Date */}
-      <div style={{ marginBottom: "1rem" }}>
-        <strong>Fecha:</strong> {fecha.toLocaleTimeString()}{" "}
-        <button onClick={() => setFecha(new Date())}>Actualizar hora</button>
+      <div className="card-sub flex items-center gap-2">
+        <FaCalendarAlt className="icon" /> <strong>Fecha:</strong> {fecha.toLocaleTimeString()}
+        <button className="btn" onClick={() => setFecha(new Date())}>Actualizar hora</button>
       </div>
 
       {/* Map */}
-      <div style={{ marginBottom: "1rem" }}>
-        <strong>Map:</strong> {JSON.stringify(Array.from(mapa.entries()))}{" "}
-        <button onClick={() => setMapa(new Map(mapa).set("c", 3))}>Agregar c=3</button>
+      <div className="card-sub flex items-center gap-2">
+        <strong>Map:</strong> {JSON.stringify(Array.from(mapa.entries()))}
+        <button className="btn" onClick={() => setMapa(new Map(mapa).set("c", 3))}>Agregar c=3</button>
       </div>
 
       {/* Set */}
-      <div style={{ marginBottom: "1rem" }}>
-        <strong>Set:</strong> {JSON.stringify(Array.from(conjunto))}{" "}
-        <button onClick={() => setConjunto(new Set(conjunto).add(4))}>Agregar 4</button>
+      <div className="card-sub flex items-center gap-2">
+        <strong>Set:</strong> {JSON.stringify(Array.from(conjunto))}
+        <button className="btn" onClick={() => setConjunto(new Set(conjunto).add(4))}>Agregar 4</button>
       </div>
 
       {/* JSX */}
-      <div style={{ marginBottom: "1rem" }}>
-        <strong>JSX / Elemento React:</strong> {elemento}{" "}
-        <button onClick={() => setElemento(<span style={{ color: "green" }}>Nuevo JSX</span>)}>Cambiar JSX</button>
+      <div className="card-sub flex items-center gap-2">
+        <strong>JSX / Elemento React:</strong> {elemento}
+        <button className="btn" onClick={() => setElemento(<span className="text-green-500">Nuevo JSX</span>)}>Cambiar JSX</button>
       </div>
     </div>
   );

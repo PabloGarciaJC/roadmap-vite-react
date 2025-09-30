@@ -1,5 +1,6 @@
-// components/Optimizar.js
+// components/Optimizar.jsx
 import React, { useState, useMemo } from "react";
+import { FaCog, FaCode, FaInfoCircle } from "react-icons/fa";
 
 // Componente hijo para mostrar número
 function Numero({ valor }) {
@@ -17,39 +18,41 @@ export default function Optimizar() {
   }, [numero]);
 
   return (
-    <div style={{ padding: "1.5rem", maxWidth: "700px", margin: "0 auto" }}>
-      <h1 style={{ fontSize: "1.75rem", fontWeight: "bold", marginBottom: "1rem" }}>
-        ⚙️ Optimización avanzada en React
+    <div className="container">
+      <h1 className="title flex items-center gap-2">
+        <FaCog className="icon" /> Optimización avanzada en React
       </h1>
 
-      {/* Descripción */}
-      <div style={{ border: "1px solid #ffd600", background: "#fff8e1", padding: "1rem", borderRadius: "8px", marginBottom: "1rem" }}>
-        <strong>📌 Optimización:</strong> React re-renderiza componentes cuando cambia el estado. <code>useMemo</code> permite memorizar cálculos costosos para que solo se recalculen cuando sea necesario.
+      <div className="card card-warning flex items-center gap-2">
+        <FaInfoCircle className="icon" />
+        <strong>Optimización:</strong> React re-renderiza componentes cuando cambia el estado. <code>useMemo</code> permite memorizar cálculos costosos para que solo se recalculen cuando sea necesario.
       </div>
 
-      {/* Input para número */}
-      <div style={{ border: "1px solid #ccc", padding: "1rem", borderRadius: "8px", marginBottom: "1rem" }}>
+      <div className="card card-sub">
         <label>
           Introduce un número:{" "}
           <input
             type="number"
             value={numero}
             onChange={(e) => setNumero(Number(e.target.value))}
-            style={{ padding: "0.5rem", borderRadius: "4px", border: "1px solid #aaa" }}
+            className="input"
           />
         </label>
       </div>
 
-      {/* Renderizado de números */}
-      <div style={{ border: "1px solid #ccc", padding: "1rem", borderRadius: "8px", marginBottom: "1rem" }}>
+      <div className="card card-sub">
         <strong>Array de números:</strong>
-        {numeros.map(n => <Numero key={n} valor={n} />)}
+        {numeros.map((n) => (
+          <Numero key={n} valor={n} />
+        ))}
       </div>
 
-      {/* Ejemplo de código */}
-      <div style={{ border: "1px solid #ccc", padding: "1rem", borderRadius: "8px" }}>
-        <strong>Ejemplo de sintaxis:</strong>
-        <pre style={{ background: "#f5f5f5", padding: "0.5rem", borderRadius: "4px" }}>
+      <div className="card card-sub">
+        <div className="flex items-center gap-2">
+          <FaCode className="icon" />
+          <strong>Ejemplo de sintaxis:</strong>
+        </div>
+        <pre className="code-block">
           {`const [numero, setNumero] = useState(0);
 
 const numeros = useMemo(() => {
