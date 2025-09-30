@@ -2,13 +2,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { 
-  FaRocket, FaPuzzlePiece, FaFont, FaInbox, FaBolt, FaHourglassHalf, 
+  FaMapMarkedAlt, FaRocket, FaPuzzlePiece, FaFont, FaInbox, FaBolt, FaHourglassHalf, 
   FaGlobe, FaBrain, FaFlask, FaSlidersH, FaList, FaRoute, FaPenFancy, FaCog 
 } from "react-icons/fa";
 
 export default function Sidebar() {
   const links = [
-    { to: "/", label: "Introducción a React", icon: <FaRocket /> },
+    { to: "/", label: "Introducción a Vite con React", icon: <FaRocket /> },
     { to: "/componentes", label: "Componentes", icon: <FaPuzzlePiece /> },
     { to: "/jsx", label: "JSX", icon: <FaFont /> },
     { to: "/props", label: "Props", icon: <FaInbox /> },
@@ -27,7 +27,7 @@ export default function Sidebar() {
   return (
     <div className="sidebar">
       <h2 className="sidebar-title">
-        <FaRocket /> Leard Vite - React
+        <FaMapMarkedAlt className="icon" /> Roadmap: React + Vite
       </h2>
       <ul className="sidebar-links">
         {links.map((link) => (
