@@ -2,8 +2,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
-
-// Importar todos los componentes de práctica
 import Introduccion from "./components/Introduccion";
 import Componentes from "./components/Componentes";
 import JSX from "./components/JSX";
