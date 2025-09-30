@@ -27,7 +27,7 @@ export default function Sidebar() {
   return (
     <div className="sidebar">
       <h2 className="sidebar-title">
-        <FaRocket /> Dashboard React
+        <FaRocket /> Leard Vite - React
       </h2>
       <ul className="sidebar-links">
         {links.map((link) => (
