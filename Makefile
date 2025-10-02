@@ -86,3 +86,13 @@ vite-dev:
 npm-install:
 	$(DOCKER_COMPOSE) exec --user pablogarciajc server_core bash -c "cd /var/www/html && npm install"
 
+.PHONY: vite-build
+vite-build:
+	$(DOCKER_COMPOSE) exec --user ${USER} server_core bash -c "cd ${APP_DIR} && npm run build"
+
+.PHONY: vite-deploy
+vite-deploy: vite-build
+	@echo '🚀 Copiando archivos de dist/ al public_html...'
+	$(DOCKER_COMPOSE) exec --user root server_core bash -c "cp -r ${APP_DIR}/dist/* ${APP_DIR}/ && rm -rf ${APP_DIR}/dist"
+
+
