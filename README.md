@@ -11,6 +11,26 @@ Este proyecto es tu primer acercamiento práctico a **React** usando **Vite**. E
 | ![Imagen 1](https://pablogarciajc.com/wp-content/uploads/2025/10/roadmap-vite-react-1.webp) | ![Imagen 2](https://pablogarciajc.com/wp-content/uploads/2025/10/roadmap-vite-react-2.webp) |
 |-----------|-----------|
 
+## Áreas de Estudio
+
+Este proyecto es tu primer acercamiento práctico a **React** usando **Vite**, diseñado para aprender conceptos esenciales mientras construyes un proyecto funcional:
+
+- **Introducción a Vite con React**: Instalación y configuración de Vite, diferencias con Create React App, estructura del proyecto y desarrollo rápido.
+- **Componentes**: Base de React; componentes funcionales, composición, importación y exportación.
+- **JSX**: Sintaxis similar a HTML, expresiones, condicionales, loops y buenas prácticas de legibilidad.
+- **Props**: Pasar información a componentes, props por defecto, validación y comunicación entre componentes padre e hijo.
+- **useState**: Manejo del estado local, actualización de estado, objetos y arrays, y patrones para múltiples estados.
+- **useEffect**: Efectos secundarios, fetch de datos, timers, dependencias y limpieza de efectos.
+- **useContext**: Manejo de estado global, creación y consumo de contextos, y evitar prop drilling.
+- **useCallback**: Optimización de funciones pasadas como props y evitar recreación innecesaria de funciones.
+- **useMemo**: Memorizar cálculos costosos y evitar renders innecesarios de componentes.
+- **Manejo de eventos**: Eventos en JSX, objeto event, prevención de comportamiento por defecto y buenas prácticas.
+- **Renderizado de listas**: Map, claves (`key`), listas anidadas, componentes reutilizables, filtrado y ordenamiento.
+- **React Router**: Configuración de rutas, rutas dinámicas, navegación programática y rutas anidadas.
+- **Formularios**: Inputs controlados y no controlados, validación de datos, manejo de errores y librerías externas opcionales.
+- **Optimización avanzada**: Memoización de componentes, lazy loading, división de código y análisis de performance.
+
+
 ## Instalación
 
 ### Requisitos Previos
