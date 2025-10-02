@@ -71,37 +71,23 @@ set-permissions:
 	$(DOCKER_COMPOSE) exec --user root server_core bash -c "chown -R ${USER}:${USER} ${APP_DIR} && chmod -R 755 ${APP_DIR}"
 
 ## ---------------------------------------------------------
-## Instalación y configuración de Vite
+## Instalación y configuración del proyecto (React + npm)
 ## ---------------------------------------------------------
 
-.PHONY: vite-create
-vite-create:
+.PHONY: npm-create
+npm-create:
 	$(DOCKER_COMPOSE) exec --user pablogarciajc server_core bash -c "cd /var/www/html && npm create vite@latest . -- --template react"
-
-.PHONY: vite-dev
-vite-dev:
-	$(DOCKER_COMPOSE) exec --user pablogarciajc server_core bash -c "cd /var/www/html && npm run dev -- --host"
 
 .PHONY: npm-install
 npm-install:
 	$(DOCKER_COMPOSE) exec --user pablogarciajc server_core bash -c "cd /var/www/html && npm install"
 
-## ---------------------------------------------------------
-## Instalación y configuración de Vite
-## ---------------------------------------------------------
+.PHONY: npm-host
+npm-host:
+	$(DOCKER_COMPOSE) exec --user pablogarciajc server_core bash -c "cd /var/www/html && npm run dev -- --host"
 
-## ---------------------------------------------------------
-## ---------------------------------------------------------
-## Target: vite-deploy
-## Descripción:
-## 1 - Ejecuta `npm run build` dentro del contenedor (genera /dist)
-## 2 - Copia los archivos compilados desde /dist a la raíz (/var/www/html)
-## 3 - Borra la carpeta temporal dist/
-## Uso:
-##     make vite-deploy
-## ---------------------------------------------------------
-.PHONY: vite-deploy
-vite-deploy:
+.PHONY: npm-build
+npm-build:
 	$(DOCKER_COMPOSE) exec --user ${USER} server_core bash -c "cd ${APP_DIR} && npm run build"
 	$(DOCKER_COMPOSE) exec --user root server_core bash -c "cp -r ${APP_DIR}/dist/* ${APP_DIR}/ && rm -rf ${APP_DIR}/dist"
 
