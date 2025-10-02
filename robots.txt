@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /
+Disallow: /Home/help
+Disallow: /Home/privacy
+Disallow: /Producto/ficha?grupo_id=1736340350

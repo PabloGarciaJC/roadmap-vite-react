@@ -86,13 +86,26 @@ vite-dev:
 npm-install:
 	$(DOCKER_COMPOSE) exec --user pablogarciajc server_core bash -c "cd /var/www/html && npm install"
 
-.PHONY: vite-build
-vite-build:
-	$(DOCKER_COMPOSE) exec --user ${USER} server_core bash -c "cd ${APP_DIR} && npm run build"
+## ---------------------------------------------------------
+## Instalación y configuración de Vite
+## ---------------------------------------------------------
 
+## ---------------------------------------------------------
+## ---------------------------------------------------------
+## Target: vite-deploy
+## Descripción:
+## 1 - Ejecuta `npm run build` dentro del contenedor (genera /dist)
+## 2 - Copia los archivos compilados desde /dist a la raíz (/var/www/html)
+## 3 - Borra la carpeta temporal dist/
+## Uso:
+##     make vite-deploy
+## ---------------------------------------------------------
 .PHONY: vite-deploy
-vite-deploy: vite-build
-	@echo '🚀 Copiando archivos de dist/ al public_html...'
+vite-deploy:
+	$(DOCKER_COMPOSE) exec --user ${USER} server_core bash -c "cd ${APP_DIR} && npm run build"
 	$(DOCKER_COMPOSE) exec --user root server_core bash -c "cp -r ${APP_DIR}/dist/* ${APP_DIR}/ && rm -rf ${APP_DIR}/dist"
+
+
+
 
 
