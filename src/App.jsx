@@ -1,6 +1,6 @@
-
-import React from "react";
+import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import { FaBars } from "react-icons/fa"; // icono de hamburguesa
 import Sidebar from "./components/Sidebar";
 import Introduccion from "./components/Introduccion";
 import Componentes from "./components/Componentes";
@@ -18,9 +18,23 @@ import Formularios from "./components/Formularios";
 import Optimizar from "./components/Optimizar";
 
 export default function App() {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
+
   return (
     <div className="app flex relative">
-      <Sidebar />
+      {/* Botón hamburguesa solo en móviles */}
+      <button
+        className="hamburger-btn"
+        onClick={toggleSidebar}
+      >
+        <FaBars size={24} />
+      </button>
+
+      {/* Sidebar */}
+      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+
       <main className="main flex-1 p-6">
         <Routes>
           <Route path="/" element={<Introduccion />} />

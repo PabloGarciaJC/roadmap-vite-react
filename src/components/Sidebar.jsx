@@ -1,4 +1,3 @@
-// components/Sidebar.jsx
 import React from "react";
 import { Link } from "react-router-dom";
 import { 
@@ -6,7 +5,7 @@ import {
   FaGlobe, FaBrain, FaFlask, FaSlidersH, FaList, FaRoute, FaPenFancy, FaCog 
 } from "react-icons/fa";
 
-export default function Sidebar() {
+export default function Sidebar({ isOpen, onClose }) {
   const links = [
     { to: "/", label: "Introducción a Vite con React", icon: <FaRocket /> },
     { to: "/componentes", label: "Componentes", icon: <FaPuzzlePiece /> },
@@ -25,19 +24,24 @@ export default function Sidebar() {
   ];
 
   return (
-    <div className="sidebar">
-      <h2 className="sidebar-title">
-        <FaMapMarkedAlt className="icon" /> Roadmap: React + Vite
-      </h2>
-      <ul className="sidebar-links">
-        {links.map((link) => (
-          <li key={link.to}>
-            <Link to={link.to} className="sidebar-link">
-              {link.icon} <span>{link.label}</span>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+      {/* Fondo oscuro cuando el sidebar está abierto en móvil */}
+      {isOpen && <div className="overlay" onClick={onClose}></div>}
+
+      <div className={`sidebar ${isOpen ? "open" : ""}`}>
+        <h2 className="sidebar-title">
+          <FaMapMarkedAlt className="icon" /> Roadmap: React + Vite
+        </h2>
+        <ul className="sidebar-links">
+          {links.map((link) => (
+            <li key={link.to}>
+              <Link to={link.to} className="sidebar-link" onClick={onClose}>
+                {link.icon} <span>{link.label}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
   );
 }
