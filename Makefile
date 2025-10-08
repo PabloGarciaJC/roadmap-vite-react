@@ -92,10 +92,3 @@ npm-host:
 .PHONY: build-prod
 build-prod:
 	$(DOCKER_COMPOSE) exec --user ${USER} server_core bash -c "cd ${APP_DIR} && npm run build"
-
-
-
-
-
-
-

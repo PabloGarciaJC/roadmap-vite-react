@@ -2,10 +2,10 @@
 import React from "react";
 import { FaCode, FaBolt, FaCubes, FaPuzzlePiece } from "react-icons/fa";
 
-// 🔹 Componente hijo funcional 1
+// Componente hijo funcional 1
 function CardA() {
   return (
-    <div className="card card-neutral">
+    <div className="card card-warning">
       <h3 className="subtitle flex items-center gap-2">
         <FaCode className="icon" /> Componente Funcional A
       </h3>
@@ -20,7 +20,7 @@ function CardA() {
   );
 }
 
-// 🔹 Componente hijo funcional 2 con arrow function
+// Componente hijo funcional 2 con arrow function
 const CardB = () => (
   <div className="card card-warning">
     <h3 className="subtitle flex items-center gap-2">
@@ -34,11 +34,11 @@ const CardB = () => (
   </div>
 );
 
-// 🔹 Componente hijo de clase
+// Componente hijo de clase
 class CardC extends React.Component {
   render() {
     return (
-      <div className="card card-neutral">
+      <div className="card card-warning">
         <h3 className="subtitle flex items-center gap-2">
           <FaCubes className="icon" /> Componente de Clase C
         </h3>
@@ -54,7 +54,7 @@ class CardC extends React.Component {
   }
 }
 
-// 🔹 Componente principal
+// Componente principal
 export default function Componentes() {
   return (
     <div className="container">

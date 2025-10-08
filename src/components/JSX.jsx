@@ -53,7 +53,7 @@ export default function JSX() {
       </div>
 
       {/* String */}
-      <div className="card card-neutral">
+      <div className="card card-warning">
         <h3 className="subtitle flex items-center gap-2">
           <FaFont className="icon" /> String
         </h3>
@@ -64,7 +64,7 @@ export default function JSX() {
       </div>
 
       {/* Número */}
-      <div className="card card-neutral">
+      <div className="card card-warning">
         <h3 className="subtitle flex items-center gap-2">
           <FaHashtag className="icon" /> Número
         </h3>
@@ -75,7 +75,7 @@ export default function JSX() {
       </div>
 
       {/* Booleano */}
-      <div className="card card-neutral">
+      <div className="card card-warning">
         <h3 className="subtitle flex items-center gap-2">
           <FaToggleOn className="icon" /> Booleano
         </h3>
@@ -86,7 +86,7 @@ export default function JSX() {
       </div>
 
       {/* Null y Undefined */}
-      <div className="card card-neutral">
+      <div className="card card-warning">
         <h3 className="subtitle flex items-center gap-2">
           <FaQuestionCircle className="icon" /> Null y Undefined
         </h3>
@@ -97,7 +97,7 @@ export default function JSX() {
       </div>
 
       {/* Objeto */}
-      <div className="card card-neutral">
+      <div className="card card-warning">
         <h3 className="subtitle flex items-center gap-2">
           <FaUser className="icon" /> Objeto
         </h3>
@@ -108,7 +108,7 @@ export default function JSX() {
       </div>
 
       {/* Función */}
-      <div className="card card-neutral">
+      <div className="card card-warning">
         <h3 className="subtitle flex items-center gap-2">
           <FaCodeBranch className="icon" /> Función
         </h3>
@@ -119,7 +119,7 @@ export default function JSX() {
       </div>
 
       {/* Array de strings */}
-      <div className="card card-neutral">
+      <div className="card card-warning">
         <h3 className="subtitle flex items-center gap-2">
           <FaAppleAlt className="icon" /> Array de Strings
         </h3>
@@ -134,7 +134,7 @@ export default function JSX() {
       </div>
 
       {/* Array de JSX */}
-      <div className="card card-neutral">
+      <div className="card card-warning">
         <h3 className="subtitle flex items-center gap-2">
           <FaStream className="icon" /> Array de JSX
         </h3>
@@ -145,7 +145,7 @@ export default function JSX() {
       </div>
 
       {/* Expresiones */}
-      <div className="card card-neutral">
+      <div className="card card-warning">
         <h3 className="subtitle flex items-center gap-2">
           <FaCalculator className="icon" /> Expresiones
         </h3>
@@ -156,7 +156,7 @@ export default function JSX() {
       </div>
 
       {/* Fragmentos */}
-      <div className="card card-neutral">
+      <div className="card card-warning">
         <h3 className="subtitle flex items-center gap-2">
           <FaClone className="icon" /> Fragmentos
         </h3>
@@ -170,7 +170,7 @@ export default function JSX() {
       </div>
 
       {/* HTML dentro de JSX */}
-      <div className="card card-neutral">
+      <div className="card card-warning">
         <h3 className="subtitle flex items-center gap-2">
           <FaHtml5 className="icon" /> HTML dentro de JSX
         </h3>

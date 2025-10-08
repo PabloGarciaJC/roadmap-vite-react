@@ -31,7 +31,7 @@ export default function TiposEstado() {
       </div>
 
       {/* Número */}
-      <div className="card-sub flex items-center gap-2">
+      <div className="card card-warning">
         <FaHashtag className="icon" /> <strong>Número:</strong> {contador}
         <button className="btn" onClick={() => setContador(contador + 1)}>
           <FaPlusCircle className="icon" /> +1
@@ -39,7 +39,7 @@ export default function TiposEstado() {
       </div>
 
       {/* String */}
-      <div className="card-sub flex items-center gap-2">
+      <div className="card card-warning">
         <strong>String:</strong>
         <input
           className="input"
@@ -49,7 +49,7 @@ export default function TiposEstado() {
       </div>
 
       {/* Booleano */}
-      <div className="card-sub flex items-center gap-2">
+      <div className="card card-warning">
         <strong>Booleano:</strong>
         {activo ? (
           <span className="flex items-center gap-1 text-green-600">
@@ -64,7 +64,7 @@ export default function TiposEstado() {
       </div>
 
       {/* Array */}
-      <div className="card-sub">
+      <div className="card card-warning">
         <strong>Array:</strong>
         <ul className="list-disc pl-5">
           {frutas.map((f, i) => <li key={i}><FaAppleAlt className="icon" /> {f}</li>)}
@@ -73,37 +73,37 @@ export default function TiposEstado() {
       </div>
 
       {/* Objeto */}
-      <div className="card-sub flex items-center gap-2">
+      <div className="card card-warning">
         <strong>Objeto:</strong> {usuario.nombre}, {usuario.edad} años
         <button className="btn" onClick={() => setUsuario({ ...usuario, edad: usuario.edad + 1 })}>Cumplir años</button>
       </div>
 
       {/* Null / Undefined */}
-      <div className="card-sub flex items-center gap-2">
+      <div className="card card-warning">
         <strong>Null / Undefined:</strong> {valor ? valor : "Sin valor"}
         <button className="btn" onClick={() => setValor("¡Ahora hay valor!")}>Agregar valor</button>
       </div>
 
       {/* Date */}
-      <div className="card-sub flex items-center gap-2">
+      <div className="card card-warning">
         <FaCalendarAlt className="icon" /> <strong>Fecha:</strong> {fecha.toLocaleTimeString()}
         <button className="btn" onClick={() => setFecha(new Date())}>Actualizar hora</button>
       </div>
 
       {/* Map */}
-      <div className="card-sub flex items-center gap-2">
+      <div className="card card-warning">
         <strong>Map:</strong> {JSON.stringify(Array.from(mapa.entries()))}
         <button className="btn" onClick={() => setMapa(new Map(mapa).set("c", 3))}>Agregar c=3</button>
       </div>
 
       {/* Set */}
-      <div className="card-sub flex items-center gap-2">
+      <div className="card card-warning">
         <strong>Set:</strong> {JSON.stringify(Array.from(conjunto))}
         <button className="btn" onClick={() => setConjunto(new Set(conjunto).add(4))}>Agregar 4</button>
       </div>
 
       {/* JSX */}
-      <div className="card-sub flex items-center gap-2">
+      <div className="card card-warning">
         <strong>JSX / Elemento React:</strong> {elemento}
         <button className="btn" onClick={() => setElemento(<span className="text-green-500">Nuevo JSX</span>)}>Cambiar JSX</button>
       </div>

@@ -30,7 +30,7 @@ export default function Sidebar({ isOpen, onClose }) {
 
       <div className={`sidebar ${isOpen ? "open" : ""}`}>
         <h2 className="sidebar-title">
-          <FaMapMarkedAlt className="icon" /> Roadmap: React + Vite
+          Roadmap: React + Vite
         </h2>
         <ul className="sidebar-links">
           {links.map((link) => (
