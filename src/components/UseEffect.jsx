@@ -49,12 +49,12 @@ export default function LabUseEffect() {
       </div>
 
       {/* Contador automático */}
-      <div className="card-sub flex items-center gap-2">
+      <div className="card card-warning">
         <FaHashtag className="icon" /> <strong>Contador automático:</strong> {contador}
       </div>
 
       {/* Toggle */}
-      <div className="card-sub flex items-center gap-2">
+      <div className="card card-warning">
         <FaToggleOn className="icon" /> <strong>Toggle de visibilidad:</strong>
         <button className="btn" onClick={() => setVisible(!visible)}>
           {visible ? "Ocultar" : "Mostrar"} componente
@@ -63,12 +63,12 @@ export default function LabUseEffect() {
       </div>
 
       {/* Reloj */}
-      <div className="card-sub flex items-center gap-2">
+      <div className="card card-warning">
         <FaClock className="icon" /> <strong>Hora actual:</strong> {hora}
       </div>
 
       {/* Efecto con dependencia */}
-      <div className="card-sub flex flex-col gap-2">
+      <div className="card card-warning">
         <strong>Cambio de nombre:</strong>
         <input
           className="input"
@@ -79,7 +79,7 @@ export default function LabUseEffect() {
       </div>
 
       {/* Fetch simulado */}
-      <div className="card-sub flex flex-col gap-2">
+      <div className="card card-warning">
         <FaDatabase className="icon" /> <strong>Datos simulados:</strong>
         {datos ? <pre className="code-block">{JSON.stringify(datos, null, 2)}</pre> : "Cargando..."}
       </div>

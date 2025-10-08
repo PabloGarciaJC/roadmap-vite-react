@@ -3,7 +3,7 @@ import React from "react";
 import { Link, Routes, Route } from "react-router-dom";
 import { FaHome, FaInfoCircle, FaCode, FaRoute } from "react-icons/fa";
 
-// 🔹 Componentes simples para rutas
+//  Componentes simples para rutas
 function Home() {
   return <p className="route-text"><FaHome className="icon" /> Bienvenido a Home</p>;
 }
@@ -24,13 +24,13 @@ export default function Routers() {
         <strong>Qué es React Router:</strong> Permite manejar rutas y navegación en tu aplicación React sin recargar la página. Aquí mostramos un ejemplo simple con dos rutas: Home y About.
       </div>
 
-      <div className="card card-sub flex items-center gap-2">
+      <div className="card card-warning">
         <strong>Enlaces de navegación:</strong>
         <Link to="/router/home" className="link">Home</Link>
         <Link to="/router/about" className="link">About</Link>
       </div>
 
-      <div className="card card-sub">
+      <div className="card card-warning">
         <strong>Contenido de la ruta:</strong>
         <Routes>
           <Route path="home" element={<Home />} />
@@ -38,7 +38,7 @@ export default function Routers() {
         </Routes>
       </div>
 
-      <div className="card card-sub">
+      <div className="card card-warning">
         <div className="flex items-center gap-2">
           <FaCode className="icon" />
           <strong>Ejemplo de sintaxis:</strong>

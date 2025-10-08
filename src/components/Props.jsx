@@ -2,7 +2,7 @@
 import React from "react";
 import { FaInbox, FaCheckCircle, FaTimesCircle, FaAppleAlt, FaFileAlt, FaSmile } from "react-icons/fa";
 
-// 🔹 Componente hijo que recibe props de distintos tipos
+//  Componente hijo que recibe props de distintos tipos
 function EjemploProps({
   nombre,
   edad,
@@ -14,7 +14,7 @@ function EjemploProps({
   componente,
 }) {
   return (
-    <div className="card">
+    <div className="card card-warning">
       <h3 className="card-title flex items-center gap-2">
         <FaFileAlt className="icon" /> Ejemplo completo de Props
       </h3>
@@ -75,7 +75,7 @@ function EjemploProps({
   );
 }
 
-// 🔹 Componente simple para pasar como prop
+// Componente simple para pasar como prop
 function OtroComponente() {
   return (
     <div className="card-sub">
@@ -84,7 +84,7 @@ function OtroComponente() {
   );
 }
 
-// 🔹 Componente principal
+// Componente principal
 export default function Props() {
   const frutasUsuario = ["Manzana", "Banana", "Cereza"];
   const miSaludo = () => "¡Hola desde función!";

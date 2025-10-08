@@ -22,7 +22,7 @@ export default function UseMemo() {
         <strong>Qué hace useMemo:</strong> Memoriza el resultado de una función costosa para que no se vuelva a calcular en cada render si las dependencias no cambian. Ideal para optimizar rendimiento.
       </div>
 
-      <div className="card card-sub flex flex-col gap-2">
+      <div className="card card-warning">
         <p>Factorial de <strong>{numero}</strong>: {factorial}</p>
         <input
           className="input"
@@ -32,20 +32,19 @@ export default function UseMemo() {
         />
       </div>
 
-      <div className="card card-sub flex flex-col gap-2">
+      <div className="card card-warning">
         <div className="flex items-center gap-2">
           <FaCode className="icon" />
           <strong>Ejemplo de código:</strong>
         </div>
         <pre className="code-block">
           <code>{`const [numero, setNumero] = useState(0);
-
-const factorial = useMemo(() => {
-  const calcularFactorial = n => (n <= 1 ? 1 : n * calcularFactorial(n - 1));
-  return calcularFactorial(numero);
-}, [numero]);
-
-<input type="number" value={numero} onChange={e => setNumero(Number(e.target.value))} />`}</code>
+            const factorial = useMemo(() => {
+              const calcularFactorial = n => (n <= 1 ? 1 : n * calcularFactorial(n - 1));
+              return calcularFactorial(numero);
+            }, [numero]);
+            <input type="number" value={numero} onChange={e => setNumero(Number(e.target.value))} />`}
+          </code>
         </pre>
       </div>
     </div>

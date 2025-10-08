@@ -2,10 +2,10 @@
 import React, { createContext, useContext, useState } from "react";
 import { FaGlobe, FaLightbulb, FaCode } from "react-icons/fa";
 
-// 🔹 Contexto para el tema
+//  Contexto para el tema
 const TemaContext = createContext();
 
-// 🔹 Componente hijo que consume el contexto
+//  Componente hijo que consume el contexto
 function TemaBoton() {
   const { tema, toggleTema } = useContext(TemaContext);
 
@@ -19,7 +19,7 @@ function TemaBoton() {
   );
 }
 
-// 🔹 Componente principal
+//  Componente principal
 export default function UseContext() {
   const [tema, setTema] = useState("claro");
   const toggleTema = () => setTema(tema === "claro" ? "oscuro" : "claro");
@@ -37,7 +37,7 @@ export default function UseContext() {
       </div>
 
       {/* Componente y toggle */}
-      <div className="card card-sub">
+      <div className="card card-warning">
         <p>El tema actual es: <strong>{tema}</strong></p>
         <TemaContext.Provider value={{ tema, toggleTema }}>
           <TemaBoton />
@@ -45,30 +45,32 @@ export default function UseContext() {
       </div>
 
       {/* Ejemplo de código */}
-      <div className="card card-sub flex flex-col gap-2">
+      <div className="card card-warning">
         <div className="flex items-center gap-2">
           <FaCode className="icon" />
           <strong>Ejemplo de código:</strong>
         </div>
         <pre className="code-block">
-          <code>{`const TemaContext = createContext();
+          <code>
+            {`const TemaContext = createContext();
 
-function TemaBoton() {
-  const { tema, toggleTema } = useContext(TemaContext);
-  return <button onClick={toggleTema}>Cambiar tema (actual: {tema})</button>;
-}
+                function TemaBoton() {
+                  const { tema, toggleTema } = useContext(TemaContext);
+                  return <button onClick={toggleTema}>Cambiar tema (actual: {tema})</button>;
+                }
 
-export default function App() {
-  const [tema, setTema] = useState("claro");
-  const toggleTema = () => setTema(tema === "claro" ? "oscuro" : "claro");
+                export default function App() {
+                  const [tema, setTema] = useState("claro");
+                  const toggleTema = () => setTema(tema === "claro" ? "oscuro" : "claro");
 
-  return (
-    <TemaContext.Provider value={{ tema, toggleTema }}>
-      <TemaBoton />
-    </TemaContext.Provider>
-  );
-}`}</code>
-        </pre>
+                  return (
+                    <TemaContext.Provider value={{ tema, toggleTema }}>
+                      <TemaBoton />
+                    </TemaContext.Provider>
+                  );
+            }`}
+            </code>
+         </pre>
       </div>
     </div>
   );

@@ -23,7 +23,7 @@ export default function UseCallback() {
       </div>
 
       {/* Contador */}
-      <div className="card card-sub flex flex-col gap-2">
+      <div className="card card-warning">
         <p>Contador: <strong>{contador}</strong></p>
         <button className="btn btn-primary" onClick={incrementar}>
           Incrementar
@@ -31,19 +31,21 @@ export default function UseCallback() {
       </div>
 
       {/* Ejemplo de código */}
-      <div className="card card-sub flex flex-col gap-2">
+      <div className="card card-warning">
         <div className="flex items-center gap-2">
           <FaCode className="icon" />
           <strong>Ejemplo de código:</strong>
         </div>
         <pre className="code-block">
-          <code>{`const [contador, setContador] = useState(0);
+        <code>
+          {`const [contador, setContador] = useState(0);
 
-const incrementar = useCallback(() => {
-  setContador(c => c + 1);
-}, []);
+          const incrementar = useCallback(() => {
+            setContador(c => c + 1);
+          }, []);
 
-<button onClick={incrementar}>Incrementar</button>`}</code>
+          <button onClick={incrementar}>Incrementar</button>`}
+        </code>
         </pre>
       </div>
     </div>

@@ -23,13 +23,12 @@ export default function Introduccion() {
           <li>Compilación optimizada para producción sin complicaciones.</li>
         </ul>
         <pre className="code-block">
-          <code>{`npm create vite@latest my-app
-# Selecciona React y el template que prefieras`}</code>
+          <code>{`npm create vite@latest my-app # Selecciona React y el template que prefieras`}</code>
         </pre>
       </div>
 
       {/* Estructura de proyecto */}
-      <div className="card card-neutral">
+      <div className="card card-warning">
         <h2 className="subtitle">
           <FaFolderOpen className="icon" /> Estructura de un proyecto Vite + React
         </h2>
@@ -72,7 +71,7 @@ export default function Introduccion() {
       </div>
 
       {/* Tips rápidos */}
-      <div className="card card-neutral">
+      <div className="card card-warning">
         <h2 className="subtitle">
           <FaLightbulb className="icon" /> Tips rápidos para tu práctica
         </h2>

@@ -18,7 +18,7 @@ export default function Eventos() {
       </div>
 
       {/* Ejemplo visual */}
-      <div className="card card-sub flex flex-col gap-2">
+      <div className="card card-warning">
         <input
           className="input"
           placeholder="Escribe algo..."
@@ -32,16 +32,17 @@ export default function Eventos() {
       </div>
 
       {/* Ejemplo de código */}
-      <div className="card card-sub flex flex-col gap-2">
+      <div className="card card-warning">
         <div className="flex items-center gap-2">
           <FaCode className="icon" />
           <strong>Ejemplo de código:</strong>
         </div>
         <pre className="code-block">
-          <code>{`const [mensaje, setMensaje] = useState("");
-
-<input placeholder="Escribe algo..." value={mensaje} onChange={e => setMensaje(e.target.value)} />
-<button onClick={() => alert(\`Se envió: \${mensaje}\`)}>Enviar</button>`}</code>
+        <code>
+          {`const [mensaje, setMensaje] = useState("");
+          <input placeholder="Escribe algo..." value={mensaje} onChange={e => setMensaje(e.target.value)} />
+          <button onClick={() => alert(\`Se envió: \${mensaje}\`)}>Enviar</button>`}
+        </code>
         </pre>
       </div>
     </div>

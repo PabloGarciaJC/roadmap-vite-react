@@ -23,12 +23,12 @@ export default function Optimizar() {
         <FaCog className="icon" /> Optimización avanzada en React
       </h1>
 
-      <div className="card card-warning flex items-center gap-2">
+      <div className="card card-warning">
         <FaInfoCircle className="icon" />
         <strong>Optimización:</strong> React re-renderiza componentes cuando cambia el estado. <code>useMemo</code> permite memorizar cálculos costosos para que solo se recalculen cuando sea necesario.
       </div>
 
-      <div className="card card-sub">
+      <div className="card card-warning">
         <label>
           Introduce un número:{" "}
           <input
@@ -40,26 +40,26 @@ export default function Optimizar() {
         </label>
       </div>
 
-      <div className="card card-sub">
+      <div className="card card-warning">
         <strong>Array de números:</strong>
         {numeros.map((n) => (
           <Numero key={n} valor={n} />
         ))}
       </div>
 
-      <div className="card card-sub">
+      <div className="card card-warning">
         <div className="flex items-center gap-2">
           <FaCode className="icon" />
           <strong>Ejemplo de sintaxis:</strong>
         </div>
         <pre className="code-block">
-          {`const [numero, setNumero] = useState(0);
+        {`const [numero, setNumero] = useState(0);
 
-const numeros = useMemo(() => {
-  return Array.from({ length: numero }, (_, i) => i + 1);
-}, [numero]);
+        const numeros = useMemo(() => {
+          return Array.from({ length: numero }, (_, i) => i + 1);
+        }, [numero]);
 
-{numeros.map(n => <Numero key={n} valor={n} />)}`}
+        {numeros.map(n => <Numero key={n} valor={n} />)}`}
         </pre>
       </div>
     </div>

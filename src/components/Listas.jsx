@@ -20,7 +20,7 @@ export default function Listas() {
         <strong>Qué hace:</strong> En React puedes renderizar listas usando <code>map()</code> y manejar condicionales dentro del JSX, como mostrar un icono de completado o pendiente.
       </div>
 
-      <div className="card card-sub">
+      <div className="card card-warning">
         <ul>
           {tareas.map(tarea => (
             <li key={tarea.id} className="flex items-center gap-2">
@@ -31,25 +31,27 @@ export default function Listas() {
         </ul>
       </div>
 
-      <div className="card card-sub flex flex-col gap-2">
+      <div className="card card-warning">
         <div className="flex items-center gap-2">
           <FaCode className="icon" />
           <strong>Ejemplo de código:</strong>
         </div>
         <pre className="code-block">
-          <code>{`const tareas = [
-  { id: 1, nombre: "Aprender React", completada: true },
-  { id: 2, nombre: "Practicar Hooks", completada: false },
-  { id: 3, nombre: "Crear proyecto", completada: false },
-];
+          <code>
+            {`const tareas = [
+              { id: 1, nombre: "Aprender React", completada: true },
+              { id: 2, nombre: "Practicar Hooks", completada: false },
+              { id: 3, nombre: "Crear proyecto", completada: false },
+            ];
 
-<ul>
-  {tareas.map(tarea => (
-    <li key={tarea.id}>
-      {tarea.nombre} {tarea.completada ? <FaCheckCircle /> : <FaTimesCircle />}
-    </li>
-  ))}
-</ul>`}</code>
+            <ul>
+              {tareas.map(tarea => (
+                <li key={tarea.id}>
+                  {tarea.nombre} {tarea.completada ? <FaCheckCircle /> : <FaTimesCircle />}
+                </li>
+              ))}
+            </ul>`}
+          </code>
         </pre>
       </div>
     </div>
