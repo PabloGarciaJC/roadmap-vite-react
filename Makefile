@@ -10,7 +10,7 @@ USER = pablogarciajc
 ## ---------------------------------------------------------
 
 .PHONY: init-app
-init-app: | copy-env create-symlink up npm-install vite-dev print-urls
+init-app: | copy-env create-symlink up npm-install npm-host
 
 .PHONY: copy-env
 copy-env:
