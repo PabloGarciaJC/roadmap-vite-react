@@ -86,10 +86,14 @@ npm-install:
 npm-host:
 	$(DOCKER_COMPOSE) exec --user pablogarciajc server_core bash -c "cd /var/www/html && npm run dev -- --host"
 
-.PHONY: npm-build
-npm-build:
+## ---------------------------------------------------------
+## Build para producción (React + Vite)
+## ---------------------------------------------------------
+.PHONY: build-prod
+build-prod:
 	$(DOCKER_COMPOSE) exec --user ${USER} server_core bash -c "cd ${APP_DIR} && npm run build"
-	$(DOCKER_COMPOSE) exec --user root server_core bash -c "cp -r ${APP_DIR}/dist/* ${APP_DIR}/ && rm -rf ${APP_DIR}/dist"
+
+
 
 
 
