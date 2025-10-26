@@ -1,79 +1,56 @@
-ARG PHP_VERSION=8.2
-FROM php:${PHP_VERSION}-apache
+## ---------------------------------------------------------
+## Imagen base
+## ---------------------------------------------------------
+FROM node:20-alpine
 
 ## ---------------------------------------------------------
-## Argumentos fijos (reemplazamos las variables por valores fijos)
+## Variables
 ## ---------------------------------------------------------
-
-# Definir los valores que provienen del archivo .env
-ARG NEW_UID
-ARG NEW_GID
-ARG MY_USER
-ARG MY_GROUP
+ARG USERNAME=pablogarciajc
 
 ## ---------------------------------------------------------
-## Habilitar e instalar extensiones y librerías necesarias
+## Instalación de herramientas básicas
 ## ---------------------------------------------------------
-
-RUN set -eux && \
-    groupadd -g ${NEW_GID} -r ${MY_GROUP} && \
-    useradd -u ${NEW_UID} -m -s /bin/bash -g ${MY_GROUP} ${MY_USER} && \
-    apt-get update && \
-    apt-get install -y \
-        unzip \
-        git \
-        libxml2-dev \
-        tzdata \
-        nano \
-        zlib1g-dev \
-        wget && \
-    ln -fs /usr/share/zoneinfo/Europe/Madrid /etc/localtime && \
-    dpkg-reconfigure -f noninteractive tzdata && \
-    docker-php-ext-install -j$(nproc) mysqli pdo_mysql && \
-    docker-php-ext-enable mysqli pdo_mysql && \
-    a2enmod rewrite && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* && \
-    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
+RUN apk add --no-cache bash sudo shadow
 
 ## ---------------------------------------------------------
-## Instalar Node.js y npm (para Vite + React)
+## Permisos sudo para el usuario por defecto 'node'
 ## ---------------------------------------------------------
-RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
-    apt-get install -y nodejs
+RUN echo "node ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/node \
+    && chmod 0440 /etc/sudoers.d/node
 
 ## ---------------------------------------------------------
-## Copiar el contenido de la aplicación
+## Cambiar nombre visible del usuario y su grupo
 ## ---------------------------------------------------------
-COPY . /var/www/html
+RUN usermod -l ${USERNAME} node && \
+    usermod -d /home/${USERNAME} -m ${USERNAME} && \
+    groupmod -n ${USERNAME} node
 
 ## ---------------------------------------------------------
-## Configurar bash
+## Copiar archivos de configuración bash al contenedor
 ## ---------------------------------------------------------
-RUN echo ". /etc/terminal" | tee -a /home/${MY_USER}/.bashrc /root/.bashrc && \
-    chown ${MY_USER}:${MY_GROUP} /home/${MY_USER}/.bashrc
 COPY ./server_core/bash/terminal /etc/terminal
 COPY ./server_core/bash/sudo-user /etc/sudoers.d/sudo-user
+RUN chmod 0440 /etc/sudoers.d/sudo-user
 
 ## ---------------------------------------------------------
-## Copiar y habilitar la configuración de Apache
+## Configurar bash para cargar /etc/terminal al iniciar
 ## ---------------------------------------------------------
-COPY ./server_core/host/virtual-host.conf /etc/apache2/sites-available/virtual-host.conf
-RUN a2ensite virtual-host.conf && \
-    a2dissite 000-default.conf
+RUN echo ". /etc/terminal" | tee -a /home/${USERNAME}/.bashrc /root/.bashrc \
+    && chown ${USERNAME}:${USERNAME} /home/${USERNAME}/.bashrc
 
 ## ---------------------------------------------------------
-## Agregar ServerName a la configuración global de Apache
+## Directorio de trabajo y puerto expuesto
 ## ---------------------------------------------------------
-RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+WORKDIR /var/www/html
+EXPOSE 5173
 
 ## ---------------------------------------------------------
-## Exponer el puerto 80
+## Usar el usuario renombrado
 ## ---------------------------------------------------------
-EXPOSE 80
+USER ${USERNAME}
 
 ## ---------------------------------------------------------
-## Comando por defecto
+## Mantener el contenedor activo
 ## ---------------------------------------------------------
-ENTRYPOINT ["docker-php-entrypoint"]
-CMD ["apache2-foreground"]
+CMD ["tail", "-f", "/dev/null"]
