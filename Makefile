@@ -48,13 +48,6 @@ clean-project:
 	sudo docker rmi -f roadmap_vite_react_image || true
 	sudo docker network rm roadmap_vite_react_network || true
 
-.PHONY: clean-all
-clean-all:
-	sudo docker rm -f $$(sudo docker ps -aq) || true
-	sudo docker rmi -f $$(sudo docker images -q) || true
-	sudo docker volume rm -f $$(sudo docker volume ls -q) || true
-	sudo docker network prune -f || true
-
 ## ---------------------------------------------------------
 ## Instalación y configuración del proyecto (React + npm)
 ## ---------------------------------------------------------
@@ -74,7 +67,7 @@ npm-host:
 		"cd $(APP_DIR) && npm run dev -- --host"
 
 ## ---------------------------------------------------------
-## Build para producción (React + Vite)
+## Build para producción y local (React + Vite)
 ## ---------------------------------------------------------
 .PHONY: build-prod
 build-prod:
