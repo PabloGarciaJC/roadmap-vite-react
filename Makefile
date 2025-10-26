@@ -9,7 +9,7 @@ USER = pablogarciajc
 ## Inicialización de la Aplicación
 ## ---------------------------------------------------------
 .PHONY: init-app 
-init-app: up npm-create npm-install npm-host
+init-app: up npm-install npm-host
 
 ## ---------------------------------------------------------
 ## Gestión de Contenedores
