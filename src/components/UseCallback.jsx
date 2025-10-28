@@ -17,13 +17,13 @@ export default function UseCallback() {
       </h1>
 
       {/* Descripción */}
-      <div className="card card-warning flex items-center gap-2">
+      <div className="card card-info flex items-center gap-2">
         <FaLightbulb className="icon" />
         <strong>Qué hace useCallback:</strong> Evita que una función se vuelva a crear en cada render, lo cual es útil cuando se pasa como prop a componentes hijos que dependen de la estabilidad de la referencia de la función.
       </div>
 
       {/* Contador */}
-      <div className="card card-warning">
+      <div className="card card-info">
         <p>Contador: <strong>{contador}</strong></p>
         <button className="btn btn-primary" onClick={incrementar}>
           Incrementar
@@ -31,7 +31,7 @@ export default function UseCallback() {
       </div>
 
       {/* Ejemplo de código */}
-      <div className="card card-warning">
+      <div className="card card-info">
         <div className="flex items-center gap-2">
           <FaCode className="icon" />
           <strong>Ejemplo de código:</strong>

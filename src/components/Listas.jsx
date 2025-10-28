@@ -15,12 +15,12 @@ export default function Listas() {
         <FaListAlt className="icon" /> Listas y condicionales en React
       </h1>
 
-      <div className="card card-warning flex items-center gap-2">
+      <div className="card card-info flex items-center gap-2">
         <FaInfoCircle className="icon" />
         <strong>Qué hace:</strong> En React puedes renderizar listas usando <code>map()</code> y manejar condicionales dentro del JSX, como mostrar un icono de completado o pendiente.
       </div>
 
-      <div className="card card-warning">
+      <div className="card card-info">
         <ul>
           {tareas.map(tarea => (
             <li key={tarea.id} className="flex items-center gap-2">
@@ -31,7 +31,7 @@ export default function Listas() {
         </ul>
       </div>
 
-      <div className="card card-warning">
+      <div className="card card-info">
         <div className="flex items-center gap-2">
           <FaCode className="icon" />
           <strong>Ejemplo de código:</strong>

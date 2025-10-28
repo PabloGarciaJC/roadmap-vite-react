@@ -19,18 +19,18 @@ export default function Routers() {
         <FaRoute className="icon" /> React Router - Ejemplo básico
       </h1>
 
-      <div className="card card-warning flex items-center gap-2">
+      <div className="card card-info flex items-center gap-2">
         <FaInfoCircle className="icon" />
         <strong>Qué es React Router:</strong> Permite manejar rutas y navegación en tu aplicación React sin recargar la página. Aquí mostramos un ejemplo simple con dos rutas: Home y About.
       </div>
 
-      <div className="card card-warning">
+      <div className="card card-info">
         <strong>Enlaces de navegación:</strong>
         <Link to="/router/home" className="link">Home</Link>
         <Link to="/router/about" className="link">About</Link>
       </div>
 
-      <div className="card card-warning">
+      <div className="card card-info">
         <strong>Contenido de la ruta:</strong>
         <Routes>
           <Route path="home" element={<Home />} />
@@ -38,7 +38,7 @@ export default function Routers() {
         </Routes>
       </div>
 
-      <div className="card card-warning">
+      <div className="card card-info">
         <div className="flex items-center gap-2">
           <FaCode className="icon" />
           <strong>Ejemplo de sintaxis:</strong>

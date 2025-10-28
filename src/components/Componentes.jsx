@@ -5,7 +5,7 @@ import { FaCode, FaBolt, FaCubes, FaPuzzlePiece } from "react-icons/fa";
 // Componente hijo funcional 1
 function CardA() {
   return (
-    <div className="card card-warning">
+    <div className="card card-info">
       <h3 className="subtitle flex items-center gap-2">
         <FaCode className="icon" /> Componente Funcional A
       </h3>
@@ -22,7 +22,7 @@ function CardA() {
 
 // Componente hijo funcional 2 con arrow function
 const CardB = () => (
-  <div className="card card-warning">
+  <div className="card card-info">
     <h3 className="subtitle flex items-center gap-2">
       <FaBolt className="icon" /> Componente Funcional B
     </h3>
@@ -38,7 +38,7 @@ const CardB = () => (
 class CardC extends React.Component {
   render() {
     return (
-      <div className="card card-warning">
+      <div className="card card-info">
         <h3 className="subtitle flex items-center gap-2">
           <FaCubes className="icon" /> Componente de Clase C
         </h3>
@@ -59,11 +59,11 @@ export default function Componentes() {
   return (
     <div className="container">
       <h1 className="title flex items-center gap-2">
-        <FaPuzzlePiece className="icon" /> Componentes Nativos en React
+        <FaPuzzlePiece className="icon" /> Componentes
       </h1>
 
       {/* Descripción */}
-      <div className="card card-warning">
+      <div className="card card-info">
         <strong>¿Qué son los componentes?</strong>
         <p>
           Los componentes en React son bloques reutilizables de interfaz que

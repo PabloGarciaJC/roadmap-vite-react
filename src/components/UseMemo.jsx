@@ -17,12 +17,12 @@ export default function UseMemo() {
         <FaFlask className="icon" /> useMemo - Memorizar cálculos costosos
       </h1>
 
-      <div className="card card-warning flex items-center gap-2">
+      <div className="card card-info flex items-center gap-2">
         <FaInfoCircle className="icon" />
         <strong>Qué hace useMemo:</strong> Memoriza el resultado de una función costosa para que no se vuelva a calcular en cada render si las dependencias no cambian. Ideal para optimizar rendimiento.
       </div>
 
-      <div className="card card-warning">
+      <div className="card card-info">
         <p>Factorial de <strong>{numero}</strong>: {factorial}</p>
         <input
           className="input"
@@ -32,7 +32,7 @@ export default function UseMemo() {
         />
       </div>
 
-      <div className="card card-warning">
+      <div className="card card-info">
         <div className="flex items-center gap-2">
           <FaCode className="icon" />
           <strong>Ejemplo de código:</strong>

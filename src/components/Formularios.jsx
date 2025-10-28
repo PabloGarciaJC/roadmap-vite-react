@@ -17,12 +17,12 @@ export default function Formularios() {
         <FaPenNib className="icon" /> Formularios en React
       </h1>
 
-      <div className="card card-warning">
+      <div className="card card-info">
         <FaInfoCircle className="icon" />
         <strong>Qué son los formularios:</strong> Permiten al usuario ingresar datos y enviarlos. React usa <em>controlled components</em> para manejar los valores de los inputs mediante el estado.
       </div>
 
-      <form onSubmit={handleSubmit} className="card card-warning">
+      <form onSubmit={handleSubmit} className="card card-info">
         <input 
           placeholder="Nombre" 
           value={nombre} 
@@ -39,7 +39,7 @@ export default function Formularios() {
         <button type="submit" className="btn-submit">Enviar</button>
       </form>
 
-      <div className="card card-warning">
+      <div className="card card-info">
         <div className="flex items-center gap-2">
           <FaCode className="icon" />
           <strong>Ejemplo de sintaxis:</strong>

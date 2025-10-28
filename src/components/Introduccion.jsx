@@ -10,7 +10,7 @@ export default function Introduccion() {
       </h1>
 
       {/* Qué es Vite */}
-      <div className="card card-warning">
+      <div className="card card-info">
         <h2 className="subtitle">
           <FaThumbtack className="icon" /> ¿Qué es Vite?
         </h2>
@@ -28,7 +28,7 @@ export default function Introduccion() {
       </div>
 
       {/* Estructura de proyecto */}
-      <div className="card card-warning">
+      <div className="card card-info">
         <h2 className="subtitle">
           <FaFolderOpen className="icon" /> Estructura de un proyecto Vite + React
         </h2>
@@ -56,7 +56,7 @@ export default function Introduccion() {
       </div>
 
       {/* Cosas importantes */}
-      <div className="card card-warning">
+      <div className="card card-info">
         <h2 className="subtitle">
           <FaBolt className="icon" /> Consejos clave al usar Vite
         </h2>
@@ -71,7 +71,7 @@ export default function Introduccion() {
       </div>
 
       {/* Tips rápidos */}
-      <div className="card card-warning">
+      <div className="card card-info">
         <h2 className="subtitle">
           <FaLightbulb className="icon" /> Tips rápidos para tu práctica
         </h2>

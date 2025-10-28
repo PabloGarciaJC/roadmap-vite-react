@@ -154,7 +154,7 @@ body {
 }
 
 /* Variantes de tarjetas */
-.card-warning {
+.card-info {
   border-left: 6px solid #f59e0b;
   background: #fff9eb;
 }
@@ -256,7 +256,6 @@ li::marker {
 
 /* ===== BLOQUES DE CÓDIGO ===== */
 .code-block {
-  background: #0f172a;
   color: #e2e8f0;
   padding: 1rem 1.2rem;
   border-radius: 10px;

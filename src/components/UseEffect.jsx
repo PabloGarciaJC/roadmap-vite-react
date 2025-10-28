@@ -1,6 +1,6 @@
 // components/LabUseEffect.jsx
 import React, { useState, useEffect } from "react";
-import { FaClock, FaToggleOn, FaSyncAlt, FaDatabase, FaHashtag } from "react-icons/fa";
+import { FaClock, FaToggleOn, FaSyncAlt, FaHashtag, FaCode } from "react-icons/fa";
 
 export default function LabUseEffect() {
   // Contador automático
@@ -26,35 +26,44 @@ export default function LabUseEffect() {
     console.log("El nombre cambió a:", nombre);
   }, [nombre]);
 
-  // Fetch simulado
-  const [datos, setDatos] = useState(null);
-  useEffect(() => {
-    const fetchData = async () => {
-      await new Promise(res => setTimeout(res, 1000));
-      setDatos({ id: 1, titulo: "Dato simulado" });
-    };
-    fetchData();
-  }, []);
-
   return (
     <div className="container">
       <h1 className="title flex items-center gap-2">
-        <FaSyncAlt className="icon" /> Laboratorio de useEffect
+        <FaSyncAlt className="icon" /> UseEffect
       </h1>
 
-      {/* Descripción */}
-      <div className="card card-warning">
+      {/* Definición */}
+      <div className="card card-info">
         <strong>¿Qué hace useEffect?</strong>
-        <p>useEffect permite ejecutar código después del renderizado. Se usa para efectos secundarios como timers, fetch de datos, suscripciones, o reaccionar a cambios de estado o props.</p>
+        <p>
+          <code>useEffect</code> es un hook que permite ejecutar código después del renderizado.  
+          Se usa para efectos secundarios como timers, cambios de estado, suscripciones o fetch de datos.
+        </p>
+      </div>
+
+      {/* Sintaxis */}
+      <div className="card card-info">
+        <h3 className="subtitle flex items-center gap-2">
+          <FaCode className="icon" /> Sintaxis de useEffect
+        </h3>
+        <p>
+          useEffect recibe una función y un arreglo de dependencias. La función se ejecuta después del render y cada vez que cambian las dependencias.
+        </p>
+        <pre className="code-block">
+          <code>{`useEffect(() => {
+                    // código a ejecutar
+                }, [dependencias]);`}
+          </code>
+        </pre>
       </div>
 
       {/* Contador automático */}
-      <div className="card card-warning">
+      <div className="card card-info">
         <FaHashtag className="icon" /> <strong>Contador automático:</strong> {contador}
       </div>
 
       {/* Toggle */}
-      <div className="card card-warning">
+      <div className="card card-info">
         <FaToggleOn className="icon" /> <strong>Toggle de visibilidad:</strong>
         <button className="btn" onClick={() => setVisible(!visible)}>
           {visible ? "Ocultar" : "Mostrar"} componente
@@ -63,12 +72,12 @@ export default function LabUseEffect() {
       </div>
 
       {/* Reloj */}
-      <div className="card card-warning">
+      <div className="card card-info">
         <FaClock className="icon" /> <strong>Hora actual:</strong> {hora}
       </div>
 
       {/* Efecto con dependencia */}
-      <div className="card card-warning">
+      <div className="card card-info">
         <strong>Cambio de nombre:</strong>
         <input
           className="input"
@@ -76,12 +85,6 @@ export default function LabUseEffect() {
           onChange={e => setNombre(e.target.value)}
         />
         <p>Nombre actual: {nombre}</p>
-      </div>
-
-      {/* Fetch simulado */}
-      <div className="card card-warning">
-        <FaDatabase className="icon" /> <strong>Datos simulados:</strong>
-        {datos ? <pre className="code-block">{JSON.stringify(datos, null, 2)}</pre> : "Cargando..."}
       </div>
     </div>
   );

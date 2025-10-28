@@ -15,7 +15,7 @@ init-app: up npm-install npm-host
 ## Gestión de Contenedores
 ## ---------------------------------------------------------
 .PHONY: up
-up:
+up: 
 	$(DOCKER_COMPOSE) up -d
 
 .PHONY: down
@@ -67,7 +67,8 @@ npm-host:
 		"cd $(APP_DIR) && npm run dev -- --host"
 
 ## ---------------------------------------------------------
-## Build para producción y local (React + Vite)
+## Compila el proyecto React/Vite para producción
+## Genera la carpeta /dist con los archivos optimizados
 ## ---------------------------------------------------------
 .PHONY: build-prod
 build-prod:

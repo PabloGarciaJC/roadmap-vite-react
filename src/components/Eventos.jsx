@@ -12,13 +12,13 @@ export default function Eventos() {
       </h1>
 
       {/* Descripción */}
-      <div className="card card-warning flex items-center gap-2">
+      <div className="card card-info flex items-center gap-2">
         <FaInfoCircle className="icon" />
         <strong>Qué hace:</strong> React permite manejar eventos como en HTML, pero usando camelCase y pasando funciones como manejadores. Aquí mostramos cómo capturar el valor de un input y un evento de botón.
       </div>
 
       {/* Ejemplo visual */}
-      <div className="card card-warning">
+      <div className="card card-info">
         <input
           className="input"
           placeholder="Escribe algo..."
@@ -32,7 +32,7 @@ export default function Eventos() {
       </div>
 
       {/* Ejemplo de código */}
-      <div className="card card-warning">
+      <div className="card card-info">
         <div className="flex items-center gap-2">
           <FaCode className="icon" />
           <strong>Ejemplo de código:</strong>

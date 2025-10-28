@@ -1,131 +1,70 @@
-// components/Props.jsx
-import React from "react";
-import { FaInbox, FaCheckCircle, FaTimesCircle, FaAppleAlt, FaFileAlt, FaSmile } from "react-icons/fa";
+import { FaInbox, FaExchangeAlt, FaCogs, FaReact } from "react-icons/fa";
 
-//  Componente hijo que recibe props de distintos tipos
-function EjemploProps({
-  nombre,
-  edad,
-  activo,
-  frutas,
-  datos,
-  saludo,
-  elementoJSX,
-  componente,
-}) {
-  return (
-    <div className="card card-warning">
-      <h3 className="card-title flex items-center gap-2">
-        <FaFileAlt className="icon" /> Ejemplo completo de Props
-      </h3>
-
-      {/* String */}
-      <p>
-        Nombre (string): <strong>{nombre}</strong>
-      </p>
-
-      {/* Number */}
-      <p>
-        Edad (number): <strong>{edad}</strong>
-      </p>
-
-      {/* Boolean */}
-      <p className="flex items-center gap-2">
-        Activo (boolean):
-        {activo ? (
-          <span className="flex items-center gap-1">
-            <FaCheckCircle className="icon text-green-600" /> Sí
-          </span>
-        ) : (
-          <span className="flex items-center gap-1">
-            <FaTimesCircle className="icon text-red-600" /> No
-          </span>
-        )}
-      </p>
-
-      {/* Array */}
-      <p>
-        Frutas (array): <strong>{frutas ? frutas.join(", ") : "No hay frutas"}</strong>
-      </p>
-
-      {/* Objeto */}
-      <p>
-        Datos (objeto): <strong>{datos ? JSON.stringify(datos) : "No hay datos"}</strong>
-      </p>
-
-      {/* Función */}
-      <p>
-        Mensaje de función (función): <strong>{saludo ? saludo() : "No hay función"}</strong>
-      </p>
-
-      {/* Elemento JSX */}
-      <p>
-        Elemento JSX: {elementoJSX || <em>No se pasó elemento</em>}
-      </p>
-
-      {/* Componente como prop */}
-      <p>Componente pasado como prop:</p>
-      {componente ? componente() : <em>No se pasó componente</em>}
-
-      {/* Sintaxis */}
-      <pre className="code-block">
-        <code>{`<EjemploProps nombre='Ana' edad={25} activo={true} frutas={['Manzana']} datos={{key:'valor'}} saludo={funcion} elementoJSX={<div>Hola</div>} componente={() => <OtroComponente />} />`}</code>
-      </pre>
-    </div>
-  );
-}
-
-// Componente simple para pasar como prop
-function OtroComponente() {
-  return (
-    <div className="card-sub">
-      <FaSmile className="icon" /> Soy un componente pasado como prop
-    </div>
-  );
-}
-
-// Componente principal
-export default function Props() {
-  const frutasUsuario = ["Manzana", "Banana", "Cereza"];
-  const miSaludo = () => "¡Hola desde función!";
-  const datosUsuario = { ciudad: "Madrid", pais: "España" };
-
+export default function PropsIntro() {
   return (
     <div className="container">
       <h1 className="title flex items-center gap-2">
-        <FaInbox className="icon" /> Props en React - Ejemplo completo
+        <FaInbox className="icon" /> Props
       </h1>
 
-      {/* Descripción */}
-      <div className="card card-warning">
-        <strong>¿Qué son las props?</strong>
+      {/* Definición */}
+      <div className="card card-info">
+        <strong className="flex items-center gap-2">
+          <FaExchangeAlt className="icon" /> ¿Qué son las Props?
+        </strong>
         <p>
-          Las props permiten pasar datos desde un componente padre a un componente hijo. 
-          Pueden ser de cualquier tipo: string, number, boolean, array, objeto, función, JSX o incluso otro componente. 
-          Algunas props pueden ser opcionales y se puede validar su existencia antes de usarlas.
+          En <strong>React</strong>, las <strong>props</strong> (abreviatura de “properties”)
+          son los <em>parámetros</em> que un componente padre envía a un componente hijo.
+          Permiten que los componentes sean <strong>reutilizables y dinámicos</strong>,
+          al recibir datos o funciones que cambian su comportamiento o contenido.
+        </p>
+        <p>
+          Las props son <strong>inmutables</strong> dentro del componente hijo:
+          no deben modificarse, solo usarse para mostrar información o ejecutar acciones.
         </p>
       </div>
 
-      {/* Ejemplos de props */}
-      <EjemploProps
-        nombre="Ana"
-        edad={25}
-        activo={true}
-        frutas={frutasUsuario}
-        datos={datosUsuario}
-        saludo={miSaludo}
-        elementoJSX={<span className="text-blue-600">Soy un span JSX</span>}
-        componente={() => <OtroComponente />}
-      />
+      {/* Ejemplo básico */}
+      <div className="card card-info">
+        <h3 className="subtitle flex items-center gap-2">
+          <FaCogs className="icon" /> Ejemplo básico
+        </h3>
+        <p>El componente hijo <code>Saludo</code> recibe una prop llamada <code>nombre</code>:</p>
+        <pre className="code-block">
+          <code>{`function Saludo({ nombre }) {
+                    return <h2>Hola, {nombre}!</h2>;
+                  }
 
-      <EjemploProps
-        nombre="Luis"
-        edad={30}
-        activo={false}
-        frutas={["Fresa", "Mango"]}
-        saludo={() => "¡Hola Luis!"}
-        elementoJSX={<strong>Texto en negrita</strong>}
-      />
+                  export default function App() {
+                    return <Saludo nombre="Ana" />;
+                  }`}
+          </code>
+        </pre>
+        <p>El resultado será:</p>
+        <pre className="code-block">
+          <code>{`Hola, Ana!`}</code>
+        </pre>
+        <p>
+          En este ejemplo, <code>nombre</code> se pasa como prop desde <code>App</code> al componente <code>Saludo</code>.
+        </p>
+      </div>
+
+      {/* Tipos de props */}
+      <div className="card card-info">
+        <h3 className="subtitle flex items-center gap-2">
+          <FaReact className="icon" /> Tipos de datos que pueden ser props
+        </h3>
+        <ul className="list-disc pl-6">
+          <li>String → <code>{"nombre='Ana'"}</code></li>
+          <li>Number → <code>{"edad={25}"}</code></li>
+          <li>Boolean → <code>{"activo={true}"}</code></li>
+          <li>Array → <code>{"frutas={['Manzana', 'Banana']}"}</code></li>
+          <li>Objeto → <code>{"usuario={{ nombre: 'Ana', edad: 25 }}"}</code></li>
+          <li>Función → <code>{"saludo={miFuncion}"}</code></li>
+          <li>Elemento JSX → <code>{"elementoJSX={<p>Hola</p>}"}</code></li>
+          <li>Otro Componente → <code>{"componente={() => <Otro />}"}</code></li>
+        </ul>
+      </div>
     </div>
   );
 }
