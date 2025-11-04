@@ -9,7 +9,11 @@ USER = pablogarciajc
 ## Inicialización de la Aplicación
 ## ---------------------------------------------------------
 .PHONY: init-app 
-init-app: up npm-install npm-host
+init-app: copy-env up npm-install npm-host
+
+.PHONY: copy-env
+copy-env:
+	@ [ ! -f .env ] && cp .env.example .env || true
 
 ## ---------------------------------------------------------
 ## Gestión de Contenedores
