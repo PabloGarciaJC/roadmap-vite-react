@@ -41,25 +41,20 @@ export default function Optimizar() {
       </div>
 
       <div className="card card-info">
-        <strong>Array de números:</strong>
-        {numeros.map((n) => (
-          <Numero key={n} valor={n} />
-        ))}
-      </div>
-
-      <div className="card card-info">
         <div className="flex items-center gap-2">
           <FaCode className="icon" />
-          <strong>Ejemplo de sintaxis:</strong>
+          <strong>Array de números:</strong>
         </div>
         <pre className="code-block">
-        {`const [numero, setNumero] = useState(0);
+          <code>
+            {`const [numero, setNumero] = useState(0);
 
-        const numeros = useMemo(() => {
-          return Array.from({ length: numero }, (_, i) => i + 1);
-        }, [numero]);
+            const numeros = useMemo(() => {
+              return Array.from({ length: numero }, (_, i) => i + 1);
+            }, [numero]);
 
-        {numeros.map(n => <Numero key={n} valor={n} />)}`}
+            {numeros.map(n => <Numero key={n} valor={n} />)}`}
+          </code>
         </pre>
       </div>
     </div>

@@ -2,7 +2,9 @@
 import React, { useState, useEffect } from "react";
 import { FaClock, FaToggleOn, FaSyncAlt, FaHashtag, FaCode } from "react-icons/fa";
 
+
 export default function LabUseEffect() {
+
   // Contador automático
   const [contador, setContador] = useState(0);
   useEffect(() => {

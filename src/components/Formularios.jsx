@@ -45,19 +45,21 @@ export default function Formularios() {
           <strong>Ejemplo de sintaxis:</strong>
         </div>
         <pre className="code-block">
-{`const [nombre, setNombre] = useState("");
-const [email, setEmail] = useState("");
+          <code>
+            {`const [nombre, setNombre] = useState("");
+            const [email, setEmail] = useState("");
 
-const handleSubmit = (e) => {
-  e.preventDefault();
-  alert(\`Nombre: \${nombre}, Email: \${email}\`);
-};
+            const handleSubmit = (e) => {
+              e.preventDefault();
+              alert(\`Nombre: \${nombre}, Email: \${email}\`);
+            };
 
-<form onSubmit={handleSubmit}>
-  <input value={nombre} onChange={e => setNombre(e.target.value)} />
-  <input type="email" value={email} onChange={e => setEmail(e.target.value)} />
-  <button type="submit">Enviar</button>
-</form>`}
+            <form onSubmit={handleSubmit}>
+              <input value={nombre} onChange={e => setNombre(e.target.value)} />
+              <input type="email" value={email} onChange={e => setEmail(e.target.value)} />
+              <button type="submit">Enviar</button>
+            </form>`}
+          </code>
         </pre>
       </div>
     </div>
