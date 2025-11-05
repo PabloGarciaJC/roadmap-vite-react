@@ -30,7 +30,6 @@ Este proyecto es tu primer acercamiento práctico a **React** usando **Vite**, d
 - **Formularios**: Inputs controlados y no controlados, validación de datos, manejo de errores y librerías externas opcionales.
 - **Optimización avanzada**: Memoización de componentes, lazy loading, división de código y análisis de performance.
 
-
 ## Instalación
 
 ### Requisitos Previos
@@ -50,7 +49,7 @@ Este proyecto es tu primer acercamiento práctico a **React** usando **Vite**, d
     - **`make shell`**: Ingresa al contenedor para interactuar directamente con el sistema.  
     - **`make npm-install`**: Instala todas las dependencias definidas en `package.json`.  
     - **`make npm-host`**: Levanta el servidor de desarrollo (`npm run dev`) accesible desde tu máquina local.  
-    - **`make npm-build`**: Genera la versión de producción de la aplicación (`npm run build`) y mueve los archivos compilados a la raíz del proyecto.  
+    - **`make build-prod`**: Genera la versión de producción de la aplicación (`npm run build`) y mueve los archivos compilados a la raíz del proyecto.  
 
 4. Además de estos comandos, dentro del archivo **Makefile** puedes encontrar otros comandos que te permitirán interactuar de manera más específica con los contenedores y los diferentes servicios que conforman la aplicación.
 
