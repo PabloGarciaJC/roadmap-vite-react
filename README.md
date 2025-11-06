@@ -55,7 +55,6 @@ Este proyecto es tu primer acercamiento práctico a **React** usando **Vite**, d
 
 5. Accede a los siguientes URL:
    - **Aplicación Web**: [http://localhost:5173](http://localhost:5173)
-   - **PhpMyAdmin**: [http://localhost:8082/](http://localhost:8082/)
 
 ---
 
