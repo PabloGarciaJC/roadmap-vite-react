@@ -1,4 +1,4 @@
-# Roadmap: React + Vite
+# Roadmap (React + Vite)
 
 Este proyecto es tu primer acercamiento práctico a **React** usando **Vite**. Está pensado como una guía educativa y de práctica para aprender conceptos esenciales de React mientras construyes un proyecto funcional.
 
